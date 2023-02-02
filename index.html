@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Document</title>
 </head>
 <body>
     <div class="grid">
         <header class="header">
-            <h1 class="header__h1">Subscription Bros</h1>
+            <h1 class="header__h1">Subtracktor</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
                     <li class="navbar__list-item"><a class="nav__link" href=#>Home</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href=#>Contact</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href=#>Log In</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section class="search-box">
-                <form class="search-box__form">
-                    <label class="search-box__label" for="search">Search your subscriptions</label>
-                    <input id="search" type="text" placeholder="Search">
-                    <input class="search-box__button" type="button" value="Search">
-                </form>
-            </section>
+            <form class="user__input">
+                <input type="text" id="myInput" placeholder="Company">
+                <label for="charge">Cost</label>
+                <input type="number" id="charge" onchange="setTwoNumberDecimal" min="0" max="10" step="0.25" value="0.00" />
+                <select id="selectCategory">
+                    <option>Choose a Category</option>
+                </select>
+                <label for="start">Start date:</label>
+                <input type="date" id="start" name="payment-start" value="" min="2013-01-01" max="2030-12-31">
+                <label for="start">End date:</label>
+                <input type="date" id="end" name="payment-end" value="" min="2013-01-01" max="2030-12-31">
+            </form>
+            <script src="script.js"></script>
         </main>
         <footer>
             Footer
