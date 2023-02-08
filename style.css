@@ -9,7 +9,6 @@
 .navbar__list {
   display: flex;
   list-style: none;
-  justify-content: center;
 }
 
 .nav__link {
@@ -46,4 +45,11 @@
 
 .navbar {
   padding-left: 2vw;
+  width: 100%; 
+}
+
+.navbar__list-right {
+  display: flex;
+  justify-content: end;
+  float: right;
 }
