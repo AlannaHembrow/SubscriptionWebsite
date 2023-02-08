@@ -25,9 +25,10 @@
         <main>
             <div class="subscriptions">
                 <form class="user__input">
-                    <div class="user__input-company">
+                    <div class="user__input-options">
                         <input type="text" id="myInput" placeholder="Company">
-                        <input type="number" id="charge" onchange="setTwoNumberDecimal" min="0" max="10" step="0.25" value="0.00" />
+                        <input type="number" id="subscriptionValue" onchange="setTwoNumberDecimal" min="0" max="10" step="0.25" value="0.00" />
+                        <input type="submit" id="addSubscription" value="Add Sub">
                     </div>
                     <!-- <select id="selectCategory">
                         <option>Choose a Category</option>
