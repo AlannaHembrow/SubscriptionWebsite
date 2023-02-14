@@ -1,0 +1,138 @@
+main {
+    background-color: rgb(222, 226, 226);
+    height: 80vh;
+    padding-top: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.signin__info {
+    width: 60%;
+    justify-content: center;
+    text-align: center;
+    height: 10vh;
+}
+
+.signin__form-label {
+    width: 100%;
+    margin-left:6%;
+    
+}
+
+.signin__form-input {
+    width: 83%;
+    margin-right: 6%;
+    margin-bottom: 25px;
+    margin-top: 3px;
+    margin-left: 6%;
+    border: 2px solid rgb(211, 211, 211);
+    padding: 12px; 
+    height: 15px; 
+    outline: none;
+
+    
+}
+
+
+.signin__wrapper {
+    padding-top: 30px;
+    background-color: rgba(245, 245, 245, 0.76);
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(129, 127, 127, 0.2);
+}
+
+.signin {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.signin__form-input:focus {
+    border: 2px solid #555;
+  }
+
+.signin__info span {
+    color: rgb(99, 98, 98);
+}
+
+.signin__form-checkbox {
+    width: 100%;
+    margin-left: 6%;
+    display: flex;
+}
+
+.signin__form-checkbox label {
+    margin-left: 1%;
+}
+
+.signin__form-checkbox a {
+    margin-left: 26%;
+}
+
+.signin__form-btn {
+    width: 89%;
+    margin-right: 5%;
+    margin-left: 6%;
+    margin-top: 20px;
+    background-color: #8daeb6;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signin__form-btn:hover {
+    background-color: #75a877;
+}
+
+.signin__form-continue {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.2rem;
+    align-items: center;
+    padding-right: 6%;
+    padding-left: 6%;
+    margin-top: 20px;
+}
+
+.signin__form-continue:before{
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: rgba(187, 187, 187, 0.76);
+  }
+
+.signin__form-continue:after{
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: rgba(187, 187, 187, 0.76);
+  }
+
+.signin__form-altlogins {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.signin__form-altlogins button {
+    border: none;
+    width: 40%;
+    color: rgb(14, 14, 14);
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: 2px solid rgb(211, 211, 211);
+}
