@@ -2,10 +2,15 @@ const path = require('path')
 
 module.exports = {
     mode: 'development',
-    entry: '/src/index.js',
+    entry: { 
+        firebaseConfig: '/src/firebase_config.js',
+        signIn: '/src/sign_in.js',
+        resetPass: '/src/reset_password.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     watch: true
+    
 }

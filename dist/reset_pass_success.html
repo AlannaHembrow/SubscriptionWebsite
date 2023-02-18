@@ -25,37 +25,23 @@
         <main>
             <div class="signin">
                 <div class="signin__info">
-                    <h2>Sign in to your account</h2>
-                    <span>Or <a href="#">sign up for a new account</a></span>
+                    <h2>Password Reset!</h2>
+                    <span>Your password has now been successfully reset, please click the link sent to your email address. <br><br> If you need to reset your password again, please fill in the form below.</span>
                 </div>
                 <div class="signin__wrapper">
-                    <form class="signin__form" id="signinForm">
+                    <form class="signin__form" id="resetPassForm">
                         <label class="signin__form-label" for="email">Email address</label>
                         <input class="signin__form-input" type="email" name="email">
-                        <label class="signin__form-label" for="password">Password</label>
-                        <input class="signin__form-input" type="password" name="password">
-                        <div class="signin__form-checkbox">
-                            <input type="checkbox" id="rememberMe" name="rememberMe" value="Remember">
-                            <label for="rememberMe">Remember me</label>
-                            <a href="forgot_password.html" id="forgotPassword">Forgot your password?</a>
-                        </div>
-                        <button class="signin__form-btn">Sign in</button>
-                        </form>
-                        <span class="signin__form-continue">Or continue with</span>
-                        <div class="signin__form-altlogins">
-                            <button id="googleSignIn">Google</button>
-                            <button id="facebookSignIn">Facebook</button>
-                        </div>
-                        <div class="logout">
-                            <button>Logout</button>
-                        </div>
+                        <button class="signin__form-btn">Send Reset Link</button>
+                        <div class="signin__form-expand"></div>
+                    </form>
                 </div>
             </div>
         </main>
         <footer>
             Footer
         </footer>
-    </div>  
-    <script type="module" src="signIn.bundle.js"></script>  
+    </div>
+    <script type="module" src="resetPass.bundle.js"></script>  
 </body>
 </html>

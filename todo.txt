@@ -3,5 +3,7 @@ have logout button
 remember me works
 forgot pw works
 sign in takes to dashboard
-google and facebook sign in works
 sign up for a new account takes to page for sign up
+
+-----------------------
+google and facebook sign in works

@@ -1,7 +1,6 @@
 {
   "name": "subscriptionwebite",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "dependencies": {
     "ansi-regex": "^5.0.1",
@@ -54,5 +53,6 @@
   "bugs": {
     "url": "https://github.com/IvyWoof/SubscriptionWebite/issues"
   },
-  "homepage": "https://github.com/IvyWoof/SubscriptionWebite#readme"
+  "homepage": "https://github.com/IvyWoof/SubscriptionWebite#readme",
+  "description": ""
 }
