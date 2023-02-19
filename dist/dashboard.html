@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="module" src="index.bundle.js"></script>  
+    <script type="module" src="dashboard.bundle.js"></script>  
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="grid">
+        <header class="header">
+            <h1 class="header__h1">Subtracker</h1>
+            <nav class="navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__list-item"><a class="nav__link" href="index.html">Home</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
+                    <div class="navbar navbar__list-right">
+                        <li class="navbar__list-item"><a class="nav__link" href="sign_in.html" id="loginStatus">Log In</a></li>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <p id="demo"></p>
+            <div class="divTable steelBlueCols" id="container">
+                <div class="divTableHeading">
+                <div class="divTableRow">
+                <div class="divTableHead">Subscription</div>
+                <div class="divTableHead">Renewal Date</div>
+                <div class="divTableHead">Frequency</div>
+                <div class="divTableHead">Cost</div>
+                </div>
+                </div>
+                <div class="divTableBody" id="subTableBody">
+                    <div class="divTableRow">
+                    <div class="divTableCell">Netflix</div>
+                    <div class="divTableCell">15 March 2023</div>
+                    <div class="divTableCell">Monthly</div>
+                    <div class="divTableCell">9.99</div>
+                    </div>
+                </div>
+                </div>
+        </main>
+        <footer>
+            Footer
+        </footer>
+    </div>
+</body>
+</html>

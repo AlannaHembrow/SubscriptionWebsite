@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="grid">
+        <header class="header">
+            <h1 class="header__h1">Subtracker</h1>
+            <nav class="navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__list-item"><a class="nav__link" href="index.html">Home</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
+                    <div class="navbar navbar__list-right">
+                        <li class="navbar__list-item"><a class="nav__link" href="sign_in.html">Log In</a></li>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <main class="main">
+            <div class="signin">
+                <div class="signin__info">
+                    <h2>Sign up for a new account</h2>
+                    <span>Fill out the information below to sign up for a new account</a></span>
+                </div>
+                <div class="signin__wrapper">
+                    <form class="signin__form" id="signinForm">
+                        <label class="signin__form-label" for="username">Username</label>
+                        <input class="signin__form-input" type="text" name="username">
+                        <label class="signin__form-label" for="email">Email address</label>
+                        <input class="signin__form-input" type="email" name="email">
+                        <label class="signin__form-label" for="password">Password</label>
+                        <input class="signin__form-input" type="password" name="password">
+                        <label class="signin__form-label" for="password-confirmation">Password confirmation</label>
+                        <input class="signin__form-input" type="password" name="password-confirmation">
+                        <div class="signin__form-terms"><a href="#">By signing up, you agree to our terms of use.</a></div>
+                        <button class="signin__form-btn">Sign up</button>
+                        </form>
+                        <span class="signin__form-continue">Or continue with</span>
+                        <div class="signin__form-altlogins">
+                            <button id="googleSignIn">Google</button>
+                            <button id="facebookSignIn">Facebook</button>
+                        </div>
+                        <div class="logout">
+                            <button>Logout</button>
+                        </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            Footer
+        </footer>
+    </div>  
+    <script type="module" src="signUp.bundle.js"></script>
+    <script type="module" src="index.bundle.js"></script>  
+</body>
+</html>

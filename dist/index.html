@@ -13,21 +13,21 @@
             <h1 class="header__h1">Subtracker</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
-                    <li class="navbar__list-item"><a class="nav__link" href=#>Home</a></li>
-                    <li class="navbar__list-item"><a class="nav__link" href=#>Subscriptions</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="#">Home</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
                     <div class="navbar navbar__list-right">
-                        <li class="navbar__list-item"><a class="nav__link" href="sign_in.html">Log In</a></li>
+                        <li class="navbar__list-item"><a class="nav__link" href="sign_in.html" id="loginStatus">Log In</a></li>
                     </div>
                 </ul>
             </nav>
         </header>
-        <main>
+        <main class="main">
             <div class="subscriptions">
                 <form class="user__input">
                     <div class="user__input-options">
-                        <input type="text" id="myInput" placeholder="Company">
-                        <input type="number" id="subscriptionValue" onchange="setTwoNumberDecimal" min="0" max="10" step="0.25" value="0.00" />
+                        <input type="text" id="myInput" name="subscription" placeholder="Company">
+                        <input type="number" id="subscriptionValue" name="price" value="0.00" />
                         <input type="submit" id="addSubscription" value="Add Sub">
                     </div>
                     <!-- <select id="selectCategory">
@@ -38,52 +38,12 @@
                     <label for="start">End date:</label>
                     <input type="date" id="end" name="payment-end" value="" min="2013-01-01" max="2030-12-31"> -->
                 </form>
-                <!-- <form class="add">
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" required>
-                    <label for="author">Author:</label>
-                    <input type="type" name="author" required>
-
-                    <button>add a new book</button>
-                </form>
-
-                <form class="delete">
-                    <label for="id">Document id:</label>
-                    <input type="text" name="id" required>
-
-                    <button>delete a book</button>
-                </form>
-
-                <form class="update">
-                    <label for="id">Document id:</label>
-                    <input type="text" name="id" required>
-                <button>update a book</button>
-                </form>
-            </div>
-
-            <h2>Firebase Auth</h2>
-            <form class="signup">
-                <label for="email">email:</label>
-                <input type="email" name="email">
-                <label for="password">password:</label>
-                <input type="password" name="password">
-                <button>signup</button>
-            </form>
-
-            <form class="login">
-                <label for="email">email:</label>
-                <input type="email" name="email">
-                <label for="password">password:</label>
-                <input type="password" name="password">
-                <button>login</button>
-            </form>
-            
-            <button class="logout">logout</button> -->
         </main>
         <footer>
             Footer
         </footer>
     </div>
-    <script type="module" src="bundle.js"></script>
+    <script type="module" src="index.bundle.js"></script>  
+    <script type="module" src="addSub.bundle.js"></script>
 </body>
 </html>

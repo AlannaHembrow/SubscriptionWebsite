@@ -31,9 +31,3 @@ function signIn(event) {
 
 const loginForm = document.getElementById('signinForm') 
 loginForm.addEventListener('submit', signIn);
-
-//subscribing to auth changes
-onAuthStateChanged(auth, (user) => {
-    console.log('user status changed:', user)
-
-})

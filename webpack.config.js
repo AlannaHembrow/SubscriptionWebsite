@@ -5,7 +5,11 @@ module.exports = {
     entry: { 
         firebaseConfig: '/src/firebase_config.js',
         signIn: '/src/sign_in.js',
-        resetPass: '/src/reset_password.js'
+        resetPass: '/src/reset_password.js',
+        signUp: '/src/sign_up.js',
+        index: '/src/index.js',
+        addSub: '/src/addSubscription.js',
+        dashboard: '/src/dashboard.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

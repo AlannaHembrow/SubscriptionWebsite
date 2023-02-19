@@ -131,7 +131,7 @@ input[type=number] {
   color: white;
 }
 
-main {
+.main {
   background-color: rgb(222, 226, 226);
   height: 80vh;
   padding-top: 5vh;
@@ -169,6 +169,9 @@ main {
   outline: none;
 }
 
+.signin__form-terms {
+  text-align: center;
+}
 
 .signin__wrapper {
   padding-top: 30px;
@@ -271,3 +274,61 @@ main {
   margin-bottom: 20px;
   border: 2px solid rgb(211, 211, 211);
 }
+div.steelBlueCols {
+  background-color: #555555;
+  width: 80%;
+  margin: 10%;
+  margin-top: 5%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.steelBlueCols .divTableCell, .divTable.steelBlueCols .divTableHead {
+  padding: 5px 10px;
+}
+.divTable.steelBlueCols .divTableBody .divTableCell {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.divTable.steelBlueCols .divTableHeading {
+  background: #9a9c9c;
+}
+.divTable.steelBlueCols .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+}
+.divTable.steelBlueCols .divTableHeading .divTableHead:first-child {
+  border-left: none;
+}
+
+.steelBlueCols .tableFootStyle {
+  font-size: 13px;
+}
+.steelBlueCols .tableFootStyle .links {
+	 text-align: right;
+}
+.steelBlueCols .tableFootStyle .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #398AA4;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.steelBlueCols.outerTableFooter {
+  border-top: none;
+}
+.steelBlueCols.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
