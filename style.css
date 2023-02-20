@@ -139,7 +139,6 @@ input[type=number] {
   justify-content: center;
 }
 
-
 .signin__info {
   width: 100%;
   justify-content: center;
@@ -178,12 +177,13 @@ input[type=number] {
   background-color: rgba(245, 245, 245, 0.76);
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(129, 127, 127, 0.2);
+  width: 25%;
 }
 
 .signin {
   display: flex;
   justify-content: center;
-  width: 25%;
+  width: 100%;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -274,26 +274,35 @@ input[type=number] {
   margin-bottom: 20px;
   border: 2px solid rgb(211, 211, 211);
 }
+
+.divtableTitle {
+  margin-left: 25%;
+}
+
 div.steelBlueCols {
-  background-color: #555555;
-  width: 80%;
-  margin: 10%;
-  margin-top: 5%;
+  background-color: #ffffff;
+  width: 50%;
   text-align: center;
   border-collapse: collapse;
 }
+
+.divTableWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .divTable.steelBlueCols .divTableCell, .divTable.steelBlueCols .divTableHead {
   padding: 5px 10px;
 }
 .divTable.steelBlueCols .divTableBody .divTableCell {
-  font-size: 12px;
-  font-weight: bold;
-  color: #FFFFFF;
+  font-size: 16px;
+  color: #080808;
   text-align: left;
 }
 
 .divTable.steelBlueCols .divTableHeading {
-  background: #9a9c9c;
+  background: #ffffff;
 }
 .divTable.steelBlueCols .divTableHeading .divTableHead {
   font-size: 15px;
@@ -323,6 +332,11 @@ div.steelBlueCols {
 }
 .steelBlueCols.outerTableFooter .tableFootStyle {
   padding: 3px 5px; 
+}
+
+.divTableCell {
+  width: 25%;
+  border-bottom: 0.1rem solid rgb(224, 224, 224);;
 }
 
 .divTable{ display: table; }

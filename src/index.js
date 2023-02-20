@@ -15,3 +15,4 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("loginStatus").innerHTML = 'Log In';
     }
 })
+

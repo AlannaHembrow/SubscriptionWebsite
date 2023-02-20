@@ -1,9 +1,13 @@
-remove password and email from address bar
+
 have logout button
 remember me works
-forgot pw works
-sign in takes to dashboard
-sign up for a new account takes to page for sign up
+add sub checks if user is logged in or not, if not asks them to sign in
+check all inputs and display error messages if error found
+delete and edit sub button
+filter and sort button
+search subs button
+make table better
+
 
 -----------------------
 google and facebook sign in works

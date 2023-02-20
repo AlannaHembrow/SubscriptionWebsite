@@ -17,10 +17,19 @@ onAuthStateChanged(auth, (user) => {
             let subscriptions = []
             snapshot.docs.forEach((doc) => {
                 subscriptions.push({ ...doc.data(), id: doc.id })
-            })
 
             console.log(subscriptions)
-            container = document.getElementById('subTableBody');
+            
+        }) 
+
+        const totalSubs = document.getElementById("totalSubs");
+            for (var c = 0; c <= subscriptions.length; c++) {
+                let num = 0
+                num += c;
+                totalSubs.innerHTML = num;
+            }
+        
+        container = document.getElementById('subTableBody');
             for (let i = 0; i < subscriptions.length; i++) {
                 let subName = subscriptions[i].subscriptionName;
                 let subValue = subscriptions[i].subscriptionValue;
@@ -30,12 +39,12 @@ onAuthStateChanged(auth, (user) => {
                 newRow.className = "divTableRow";
                 container.appendChild(newRow);
                     let newSubNameRow = document.createElement('div');
-                    newSubNameRow.classList.add('divTableCell');
                     let newSubValueRow = document.createElement('div');
-                    newSubValueRow.classList.add('divTableCell');
                     let newSubDateRow = document.createElement('div');
-                    newSubDateRow.classList.add('divTableCell');
                     let newSubFreqRow = document.createElement('div');
+                    newSubNameRow.classList.add('divTableCell');
+                    newSubValueRow.classList.add('divTableCell');
+                    newSubDateRow.classList.add('divTableCell');
                     newSubFreqRow.classList.add('divTableCell');
                     newSubNameRow.textContent = subName;
                     newSubDateRow.textContent = subDate;
@@ -46,8 +55,27 @@ onAuthStateChanged(auth, (user) => {
                     newRow.appendChild(newSubFreqRow);
                     newRow.appendChild(newSubValueRow);
             }
-        })
+
+        const monthlyCost = document.getElementById("monthlySubCost");
+            let totalSubValue = 0;
+            for (let i = 0; i < subscriptions.length; i++) {
+                let subValue = parseInt(subscriptions[i].subscriptionValue);
+                totalSubValue += subValue; 
+            
+            } monthlyCost.innerHTML = totalSubValue;
+
+        const yearlyCost = document.getElementById("yearlySubCost");
+            let yearlySubCost = (totalSubValue * 12);
+            console.log(yearlySubCost);
+            yearlyCost.innerHTML = yearlySubCost;
+    }) 
     } else {
         console.log('Not logged in');
     }
 })
+
+
+
+
+
+
