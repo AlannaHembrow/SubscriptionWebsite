@@ -1,11 +1,12 @@
 import app from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { where, query, collection, getFirestore, onSnapshot } from 'firebase/firestore';
+import { where, query, collection, firebase, getFirestore, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 const colRef = collection(db, 'subscriptions')
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -30,11 +31,13 @@ onAuthStateChanged(auth, (user) => {
             }
         
         container = document.getElementById('subTableBody');
+            document.getElementById('subTableBody').innerHTML = "";
             for (let i = 0; i < subscriptions.length; i++) {
                 let subName = subscriptions[i].subscriptionName;
                 let subValue = subscriptions[i].subscriptionValue;
                 let subDate = subscriptions[i].subscriptionDate;
                 let subFreq = subscriptions[i].subscriptionFreq;
+                let subID = subscriptions[i].id;
                 let newRow = document.createElement('div');
                 newRow.className = "divTableRow";
                 container.appendChild(newRow);
@@ -42,10 +45,14 @@ onAuthStateChanged(auth, (user) => {
                     let newSubValueRow = document.createElement('div');
                     let newSubDateRow = document.createElement('div');
                     let newSubFreqRow = document.createElement('div');
+                    let editSubBtn = document.createElement('div');
+                    const svgDelete = "<input type='image' class='deleteBtn' data-internalid=" + subID + " src='../delete-alt-svgrepo-com.svg'>";
+                    const svgEdit = "<button class='editBtn'>Edit</button>";
                     newSubNameRow.classList.add('divTableCell');
                     newSubValueRow.classList.add('divTableCell');
                     newSubDateRow.classList.add('divTableCell');
                     newSubFreqRow.classList.add('divTableCell');
+                    editSubBtn.classList.add('divTableCell-btn')
                     newSubNameRow.textContent = subName;
                     newSubDateRow.textContent = subDate;
                     newSubFreqRow.textContent = subFreq;
@@ -54,6 +61,8 @@ onAuthStateChanged(auth, (user) => {
                     newRow.appendChild(newSubDateRow);
                     newRow.appendChild(newSubFreqRow);
                     newRow.appendChild(newSubValueRow);
+                    newRow.appendChild(editSubBtn);
+                    editSubBtn.innerHTML = svgEdit + svgDelete;
             }
 
         const monthlyCost = document.getElementById("monthlySubCost");
@@ -73,6 +82,50 @@ onAuthStateChanged(auth, (user) => {
         console.log('Not logged in');
     }
 })
+
+const popup = document.getElementById("modal");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("addSubButton").onclick = function() {addSub()};
+document.getElementById("closeAddSub").onclick = function() {closeAddSub()};
+
+
+function addSub() {
+    popup.classList.add("active");
+    overlay.classList.add("active");
+}
+
+function closeAddSub() {
+    popup.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+overlay.addEventListener('click', () => {
+    popup.classList.remove("active");
+    overlay.classList.remove("active");
+})
+
+
+
+
+document.addEventListener('click', (e)=> {
+    let target = e.target;
+    if( target.classList.contains("deleteBtn") )  {
+        console.log('test')
+        let rowID = (e.target.dataset.internalid);
+        deleteSubscription(rowID);
+    } 
+ });
+
+// deleting docs
+function deleteSubscription(rowID) {
+
+  const docRef = doc(db, 'subscriptions', rowID)
+
+  deleteDoc(docRef)
+}
+
+
 
 
 
