@@ -32,6 +32,7 @@ function userMenu() {
   })
 }
 
+
 window.onclick = function(e){
     if (!e.target.matches('#userOptions') && !e.target.matches('.user__link') && hiddenUser.classList.contains('hiddenUser.active')) {
         hiddenUser.style.display = "none";

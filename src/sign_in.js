@@ -5,13 +5,6 @@ const auth = getAuth(app);
 
 // logging in and out
 
-const logoutButton = document.querySelector('.logout')
-logoutButton.addEventListener('click', () => {
-    signOut(auth)
-        .catch((err) => {
-            console.log(err.message)
-    })
-})
 
 function signIn(event) {
     event.preventDefault()

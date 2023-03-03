@@ -446,6 +446,7 @@ div.steelBlueCols {
   text-align: center;
   background-color: rgb(186, 222, 243);
   display: none;
+  z-index: 2;
 }
 
 

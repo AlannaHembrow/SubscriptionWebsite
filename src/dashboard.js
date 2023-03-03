@@ -7,6 +7,12 @@ const db = getFirestore(app);
 
 const colRef = collection(db, 'subscriptions')
 
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        location.href = "../dist/sign_in.html";
+    }
+}) 
+
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
