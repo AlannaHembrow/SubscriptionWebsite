@@ -471,9 +471,9 @@ div.steelBlueCols {
 }
 
 .modal {
-  width: 40%;
+  width: 770px;
   background: white;
-  height: 80%;
+  height: 440px;
   border-radius: 6px;
   position: absolute;
   top: 50%;
@@ -483,6 +483,39 @@ div.steelBlueCols {
   text-align: center;
   z-index: 10;
   background-color: white;
+  text-transform: none;
+}
+
+.modal__header{
+  display: flex;
+  align-content: flex-end;
+}
+
+.modal__header-title {
+  padding-top: 20px;
+  font-weight: 1000;
+  text-align: left;
+  width: 800px;
+}
+
+.modal__header-buttons {
+  display: flex;
+  gap: 10px;
+  
+}
+
+.modal__header-buttons button {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  line-height: 20px;
+  list-style: none;
+  padding: 4px 10px;
+  margin-top: 10px;
 }
 
 .modal__form {
@@ -490,12 +523,138 @@ div.steelBlueCols {
   flex-wrap: wrap;
 }
 
-.modal__form-label {
-  padding: 10px;
-  margin: 20px;
+.modal__form input{
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
 }
 
-.modal__form-input {
-  padding: 10px;
-  margin: 20px;
+select {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+}
+
+#frequency {
+  width: 17vw;
+}
+
+#renewalDateInput {
+  width: 175px;
+}
+
+#subNotes {
+  resize: none;
+  font-size: 0.9em;
+}
+
+#submitSubscription {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  height: 15%;
+  width: 25%;
+  align-self: last baseline;
+}
+
+.modal__form-label {
+  font-size: 0.9em;
+}
+
+.modal__form-containers {
+  display: flex;
+  gap: 2vw;
+  width: 100%;
+}
+
+#subName {
+  width: 28vw;
+}
+
+.modal__form-sections {
+  display: flex;
+  flex-direction: column;
+  text-transform: none;
+  text-align: left;
+  padding-top: 2vh;
+}
+
+#cost {
+  width: 7vw;
+}
+
+.confirmation {
+  width: 20%;
+  background: white;
+  height: 10%;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 0;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  z-index: 10;
+  background-color: white;
+  text-transform: none;
+}
+
+.confirmation.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.confirmation__buttons {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.confirmation__buttons button {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+}
+
+#confirmDelete {
+  background-color: #8daeb6;
 }

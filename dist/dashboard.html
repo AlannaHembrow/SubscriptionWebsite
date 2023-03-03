@@ -50,36 +50,64 @@
                 <div class="modal" id="modal">
                     <div class="modal__header">
                         <div class="modal__header-title">Add a New Subscription</div>
-                        <button type="button" id="setNotification">N</button>
-                        <button type="button" id="closeAddSub">&times;</button>
+                        <div class="modal__header-buttons">
+                            <button type="button" id="setNotification">N</button>
+                            <button type="button" id="closeAddSub">&times;</button>
+                        </div>
                     </div>
                     <div class="modal__body">
                         <form class="modal__form">
                             <div class="modal__form-containers">
-                                <label class="modal__form-label" for="subName">Subscription Name</label>
-                                <input class="modal__form-input" type="text" name="subName" id="subName">
-                                <label class="modal__form-label" for="cost">Cost</label>
-                                <input class="modal__form-input" type="number" name="cost" id="cost">
+                                <div class="modal__form-sections">
+                                    <label for="subName" class="modal__form-label">Subscription</label>
+                                    <input class="modal__form-input" type="text" name="subName" id="subName" aria-label="Subscription Name" placeholder="Subscription">
+                                </div>
+                                <div class="modal__form-sections">
+                                    <label for="cost" class="modal__form-label">Cost</label>
+                                    <input class="modal__form-input" type="number" name="cost" id="cost" aria-label="Subscription Cost" placeholder="Cost">
+                                </div>
                             </div>
                             <div class="modal__form-containers">
-                                <label class="modal__form-label" for="renewalDate">Renewal Date</label>
-                                <input class="modal__form-input" type="date" name="renewalDate" id="renewalDate">
-                                <label class="modal__form-label" for="frequency">Frequency</label>
-                                <select name="frequency" id="frequency" class="modal__form-input">
-                                    <option value="">--Select a Frequency--</option>
-                                    <option value="monthly">Weekly</option>
-                                    <option value="fortnightly">Fortnightly</option>
-                                    <option value="monthly">Monthly</option>
-                                    <option value="yearly">Yearly</option>
-                                </select>
-                                <select id="selectCategory">
-                                    <option>Choose a Category</option>
-                                </select>
+                                <div class="modal__form-sections" id="renewalDateInput">
+                                    <label for="renewalDate" class="modal__form-label">Renewal Date</label>
+                                    <input class="modal__form-input" type="date" name="renewalDate" id="renewalDate" aria-label="Renewal Date" placeholder="Renewal Date">
+                                </div>
+                                <div class="modal__form-sections" id="frequencyModal">
+                                    <label for="frequency" class="modal__form-label">Frequency</label>
+                                        <select name="frequency" id="frequency" class="modal__form-input">
+                                        <option value="">--Select a Frequency--</option>
+                                        <option value="monthly">Weekly</option>
+                                        <option value="fortnightly">Fortnightly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="yearly">Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="modal__form-sections">
+                                    <label for="selectCategory" class="modal__form-label">Category</label>
+                                    <select id="selectCategory">
+                                        <option>--Select a Category--</option>
+                                    </select>
+                                </div>
                             </div>
-                            <label class="modal__form-label" for="subNotes">Notes</label>
-                            <textarea class="modal__form-input" type="text" name="subNotes" id="subNotes" rows="10" cols="30"></textarea>
-                            <input type="submit" value="Submit">
+                            <div class="modal__form-containers">
+                                <div class="modal__form-sections">
+                                    <label class="modal__form-label" for="subNotes">Notes</label>
+                                    <textarea class="modal__form-input" type="text" name="subNotes" id="subNotes" rows="10" cols="61" aria-label="Subscription Notes"></textarea>
+                                </div>    
+                                    <input type="submit" value="Submit" id="submitSubscription">
+                                </div>
+                            </div>
                         </form>
+                    </div>
+                </div>
+
+                <div class="confirmation" id="deleteModal">
+                    <div class="confirmation__header">
+                        <div class="confirmation__header-title">Are you sure you wish to delete this entry?</div>
+                        <div class="confirmation__buttons">
+                            <button type="button" id="rejectDelete">Cancel</button>
+                            <button type="button" id="confirmDelete">Delete</button>
+                        </div>
                     </div>
                 </div>
                 <div id="overlay"></div>

@@ -101,34 +101,37 @@ function closeAddSub() {
 }
 
 overlay.addEventListener('click', () => {
+    deleteConfirmation.classList.remove("active");
     popup.classList.remove("active");
     overlay.classList.remove("active");
 })
 
 
-
+const deleteConfirmation = document.getElementById("deleteModal");
 
 document.addEventListener('click', (e)=> {
     let target = e.target;
-    if( target.classList.contains("deleteBtn") )  {
+    if(target.classList.contains("deleteBtn"))  {
         console.log('test')
         let rowID = (e.target.dataset.internalid);
-        deleteSubscription(rowID);
+        deleteModal(rowID);
     } 
  });
 
-// deleting docs
-function deleteSubscription(rowID) {
-
-  const docRef = doc(db, 'subscriptions', rowID)
-
-  deleteDoc(docRef)
+function deleteModal(rowID) {
+    deleteConfirmation.classList.add("active");
+    overlay.classList.add("active");
+        document.getElementById("confirmDelete").onclick = function() {
+            const docRef = doc(db, 'subscriptions', rowID)
+            deleteConfirmation.classList.remove("active");
+            overlay.classList.remove("active");
+            deleteDoc(docRef)
+        }
+        
+        document.getElementById("rejectDelete").onclick = function() {
+            deleteConfirmation.classList.remove("active");
+            overlay.classList.remove("active");
+        }
 }
-
-
-
-
-
-
 
 
