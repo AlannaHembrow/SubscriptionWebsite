@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="modal__body">
-                        <form class="modal__form">
+                        <form class="modal__form" id="subForm">
                             <div class="modal__form-containers">
                                 <div class="modal__form-sections">
                                     <label for="subName" class="modal__form-label">Subscription</label>
@@ -76,16 +76,20 @@
                                     <label for="frequency" class="modal__form-label">Frequency</label>
                                         <select name="frequency" id="frequency" class="modal__form-input">
                                         <option value="">--Select a Frequency--</option>
-                                        <option value="monthly">Weekly</option>
-                                        <option value="fortnightly">Fortnightly</option>
-                                        <option value="monthly">Monthly</option>
-                                        <option value="yearly">Yearly</option>
+                                        <option value="Weekly">Weekly</option>
+                                        <option value="Fortnightly">Fortnightly</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Yearly">Yearly</option>
                                     </select>
                                 </div>
                                 <div class="modal__form-sections">
                                     <label for="selectCategory" class="modal__form-label">Category</label>
-                                    <select id="selectCategory">
+                                    <select id="selectCategory" name="category">
                                         <option>--Select a Category--</option>
+                                        <option value="Subscription">Subscription</option>
+                                        <option value="Insurance">Insurance</option>
+                                        <option value="Bill">Bill</option>
+                                        <option value="Miscellaneous">Miscellaneous</option>
                                     </select>
                                 </div>
                             </div>
@@ -94,7 +98,7 @@
                                     <label class="modal__form-label" for="subNotes">Notes</label>
                                     <textarea class="modal__form-input" type="text" name="subNotes" id="subNotes" rows="10" cols="61" aria-label="Subscription Notes"></textarea>
                                 </div>    
-                                    <input type="submit" value="Submit" id="submitSubscription">
+                                <input type="submit" value="Submit" id="submitSubscription">
                                 </div>
                             </div>
                         </form>

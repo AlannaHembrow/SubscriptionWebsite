@@ -1,6 +1,6 @@
 import app from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { where, query, collection, firebase, getFirestore, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
+import { where, query, runTransaction, collection, firebase, getFirestore, onSnapshot, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -10,31 +10,27 @@ const colRef = collection(db, 'subscriptions')
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         location.href = "../dist/sign_in.html";
-    }
-}) 
+    } 
+})  
 
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // real time collection data
         const uid = user.uid;   
-        console.log(uid)
         const q = query(colRef, where("user", "==", uid));
         onSnapshot(q, (snapshot) => {
             let subscriptions = []
             snapshot.docs.forEach((doc) => {
                 subscriptions.push({ ...doc.data(), id: doc.id })
-
-            console.log(subscriptions)
-            
-        }) 
+        })  
 
         const totalSubs = document.getElementById("totalSubs");
             for (var c = 0; c <= subscriptions.length; c++) {
                 let num = 0
                 num += c;
                 totalSubs.innerHTML = num;
-            }
+         }
         
         container = document.getElementById('subTableBody');
             document.getElementById('subTableBody').innerHTML = "";
@@ -74,15 +70,45 @@ onAuthStateChanged(auth, (user) => {
         const monthlyCost = document.getElementById("monthlySubCost");
             let totalSubValue = 0;
             for (let i = 0; i < subscriptions.length; i++) {
-                let subValue = parseInt(subscriptions[i].subscriptionValue);
-                totalSubValue += subValue; 
+                let subValue = [{ 
+                    value: parseInt(subscriptions[i].subscriptionValue),
+                    freq: subscriptions[i].subscriptionFreq
+                }];
+                
+                if (subValue.some(code => code.freq === 'Yearly')){
+                    subValue.forEach(yearlyValue => {
+                        console.log(yearlyValue.value);
+                        let calc = yearlyValue.value/12
+                        console.log(calc)
+                        totalSubValue += calc; 
+                      })
+                } else if (subValue.some(code => code.freq === 'Weekly')){
+                    subValue.forEach(weeklyValue => {
+                        console.log(weeklyValue.value);
+                        let calc = weeklyValue.value*4.34524
+                        console.log(calc)
+                        totalSubValue += calc; 
+                      })
+
+                } else if (subValue.some(code => code.freq === 'Fortnightly')) {
+                    subValue.forEach(fortnightlyValue => {
+                        console.log(fortnightlyValue.value);
+                        let calc = fortnightlyValue.value*2.17262
+                        console.log(calc)
+                        totalSubValue += calc; 
+                })
+            } else {
+                subValue.forEach(monthlyValue => {
+                    console.log(monthlyValue.value);
+                    totalSubValue += monthlyValue.value;
+            })
+        }
             
-            } monthlyCost.innerHTML = totalSubValue;
+            } monthlyCost.innerHTML = totalSubValue.toFixed(2);
 
         const yearlyCost = document.getElementById("yearlySubCost");
             let yearlySubCost = (totalSubValue * 12);
-            console.log(yearlySubCost);
-            yearlyCost.innerHTML = yearlySubCost;
+            yearlyCost.innerHTML = yearlySubCost.toFixed(2);
     }) 
     } else {
         console.log('Not logged in');
@@ -94,7 +120,6 @@ const overlay = document.getElementById("overlay");
 
 document.getElementById("addSubButton").onclick = function() {addSub()};
 document.getElementById("closeAddSub").onclick = function() {closeAddSub()};
-
 
 function addSub() {
     popup.classList.add("active");
@@ -141,3 +166,34 @@ function deleteModal(rowID) {
 }
 
 
+onAuthStateChanged(auth, (user) => {
+        const addSubscriptionForm = document.querySelector('.modal__form')
+        addSubscriptionForm.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        await runTransaction(db, async (transaction) => {
+        const data = {
+            subscriptionName: addSubscriptionForm.subName.value,
+            subscriptionValue: addSubscriptionForm.cost.value,
+            subscriptionDate: addSubscriptionForm.renewalDate.value,
+            subscriptionFreq: addSubscriptionForm.frequency.value,
+            subscriptionCategory: addSubscriptionForm.category.value,
+            subscriptionNotes: addSubscriptionForm.subNotes.value,
+            user: user.uid,
+            createdAt: serverTimestamp()
+        }
+
+        const myCollectionRef = collection(db, "subscriptions");
+        const myDocRef = doc(myCollectionRef)
+        await transaction.set(myDocRef, data);
+        console.log('test');
+                // addSubscriptionForm.reset();
+                // popup.classList.remove('active');
+                // overlay.classList.remove('active');
+        }).then(() => {
+            addSubscriptionForm.reset();
+            popup.classList.remove('active');
+            overlay.classList.remove('active');
+        })
+    })
+})
+    
