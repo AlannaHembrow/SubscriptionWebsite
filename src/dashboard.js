@@ -13,7 +13,6 @@ onAuthStateChanged(auth, (user) => {
     } 
 })  
 
-
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // real time collection data
@@ -53,6 +52,7 @@ onAuthStateChanged(auth, (user) => {
                     newSubNameRow.classList.add('divTableCell');
                     newSubValueRow.classList.add('divTableCell');
                     newSubDateRow.classList.add('divTableCell');
+                    newSubDateRow.setAttribute('id', 'date');
                     newSubFreqRow.classList.add('divTableCell');
                     editSubBtn.classList.add('divTableCell-btn')
                     newSubNameRow.textContent = subName;
@@ -71,35 +71,29 @@ onAuthStateChanged(auth, (user) => {
             let totalSubValue = 0;
             for (let i = 0; i < subscriptions.length; i++) {
                 let subValue = [{ 
-                    value: parseInt(subscriptions[i].subscriptionValue),
+                    value: parseFloat(subscriptions[i].subscriptionValue),
                     freq: subscriptions[i].subscriptionFreq
                 }];
                 
                 if (subValue.some(code => code.freq === 'Yearly')){
                     subValue.forEach(yearlyValue => {
-                        console.log(yearlyValue.value);
                         let calc = yearlyValue.value/12
-                        console.log(calc)
                         totalSubValue += calc; 
                       })
+
                 } else if (subValue.some(code => code.freq === 'Weekly')){
                     subValue.forEach(weeklyValue => {
-                        console.log(weeklyValue.value);
                         let calc = weeklyValue.value*4.34524
-                        console.log(calc)
                         totalSubValue += calc; 
                       })
 
                 } else if (subValue.some(code => code.freq === 'Fortnightly')) {
                     subValue.forEach(fortnightlyValue => {
-                        console.log(fortnightlyValue.value);
                         let calc = fortnightlyValue.value*2.17262
-                        console.log(calc)
                         totalSubValue += calc; 
                 })
             } else {
                 subValue.forEach(monthlyValue => {
-                    console.log(monthlyValue.value);
                     totalSubValue += monthlyValue.value;
             })
         }
@@ -114,6 +108,7 @@ onAuthStateChanged(auth, (user) => {
         console.log('Not logged in');
     }
 })
+
 
 const popup = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
@@ -156,7 +151,7 @@ function deleteModal(rowID) {
             const docRef = doc(db, 'subscriptions', rowID)
             deleteConfirmation.classList.remove("active");
             overlay.classList.remove("active");
-            deleteDoc(docRef)
+            deleteDoc(docRef);
         }
         
         document.getElementById("rejectDelete").onclick = function() {
@@ -167,7 +162,6 @@ function deleteModal(rowID) {
 
 
 onAuthStateChanged(auth, (user) => {
-        const addSubscriptionForm = document.querySelector('.modal__form')
         addSubscriptionForm.addEventListener('submit', async (e) => {
         e.preventDefault()
         await runTransaction(db, async (transaction) => {
@@ -185,10 +179,6 @@ onAuthStateChanged(auth, (user) => {
         const myCollectionRef = collection(db, "subscriptions");
         const myDocRef = doc(myCollectionRef)
         await transaction.set(myDocRef, data);
-        console.log('test');
-                // addSubscriptionForm.reset();
-                // popup.classList.remove('active');
-                // overlay.classList.remove('active');
         }).then(() => {
             addSubscriptionForm.reset();
             popup.classList.remove('active');
@@ -197,3 +187,5 @@ onAuthStateChanged(auth, (user) => {
     })
 })
     
+const addSubscriptionForm = document.querySelector('.modal__form')
+addSubscriptionForm.reset();

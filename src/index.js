@@ -7,7 +7,7 @@ const hiddenUser = document.getElementById("hiddenUser");
 
 document.getElementById("userOptions").onclick = function() {userMenu()};
 document.getElementById("logOut").onclick = function() {logOut()};
-
+document.getElementById("nightMode").onclick = function() {nightMode()};
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -53,3 +53,8 @@ function logOut() {
   })
 }
 
+
+function nightMode() {
+    let siteBody = document.body;
+    siteBody.classList.toggle("dark-mode");
+  } 
