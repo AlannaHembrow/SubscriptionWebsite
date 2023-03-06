@@ -29,109 +29,117 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <div class="summary">
-                <div class="summary__info">
-                    <p>Total Subscriptions</p>
-                    <p id="totalSubs"></p>
+        <main class="dashboard__body">
+            <div>
+                <div class="summary">
+                    <div class="summary__info">
+                        <p>Total Subscriptions</p>
+                        <p id="totalSubs"></p>
+                    </div>
+                    <div class="summary__info">
+                        <p>Monthly Cost</p>
+                        <p id="monthlySubCost"></p>
+                    </div>
+                    <div class="summary__info">
+                        <p>Yearly Cost</p>
+                        <p id="yearlySubCost"></p>
+                    </div>
                 </div>
-                <div class="summary__info">
-                    <p>Monthly Cost</p>
-                    <p id="monthlySubCost"></p>
-                </div>
-                <div class="summary__info">
-                    <p>Yearly Cost</p>
-                    <p id="yearlySubCost"></p>
-                </div>
-            </div>
-            <div id="deletedAlert" role="alert">
-                <span class="hidden">Successfully deleted your selected entry</span>
-            </div>              
-            <div class="divtableTitle"> 
-                <span>Subscriptions</span>
-                <button class="open-button" id="addSubButton">Add Sub</button>
-                <div class="modal" id="modal">
-                    <div class="modal__header">
-                        <div class="modal__header-title">Add a New Subscription</div>
-                        <div class="modal__header-buttons">
-                            <button type="button" id="setNotification">N</button>
-                            <button type="button" id="closeAddSub">&times;</button>
+                <div id="deletedAlert" role="alert">
+                    <span class="hidden">Successfully deleted your selected entry</span>
+                </div>              
+                <div class="divtableTitle"> 
+                    <span>Subscriptions</span>
+                    <button class="open-button" id="addSubButton">Add Sub</button>
+                    <div class="modal" id="modal">
+                        <div class="modal__header">
+                            <div class="modal__header-title">Add a New Subscription</div>
+                            <div class="modal__header-buttons">
+                                <button type="button" id="setNotification">N</button>
+                                <button type="button" id="closeAddSub">&times;</button>
+                            </div>
+                        </div>
+                        <div class="modal__body">
+                            <form class="modal__form" id="subForm">
+                                <div class="modal__form-containers">
+                                    <div class="modal__form-sections">
+                                        <label for="subName" class="modal__form-label">Subscription</label>
+                                        <input class="modal__form-input" type="text" name="subName" id="subName" aria-label="Subscription Name" required placeholder="Subscription">
+                                    </div>
+                                    <div class="modal__form-sections">
+                                        <label for="cost" class="modal__form-label">Cost</label>
+                                        <input class="modal__form-input" type="number" name="cost" id="cost" aria-label="Subscription Cost" required placeholder="Cost" min="0" max="100000" step="any">
+                                    </div>
+                                </div>
+                                <div class="modal__form-containers">
+                                    <div class="modal__form-sections" id="renewalDateInput">
+                                        <label for="renewalDate" class="modal__form-label">Renewal Date</label>
+                                        <input class="modal__form-input" type="date" name="renewalDate" id="renewalDate" required aria-label="Renewal Date" placeholder="Renewal Date">
+                                    </div>
+                                    <div class="modal__form-sections" id="frequencyModal">
+                                        <label for="frequency" class="modal__form-label">Frequency</label>
+                                            <select name="frequency" id="frequency" class="modal__form-input" required>
+                                            <option value="">--Select a Frequency--</option>
+                                            <option value="Weekly">Weekly</option>
+                                            <option value="Fortnightly">Fortnightly</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Yearly">Yearly</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal__form-sections">
+                                        <label for="selectCategory" class="modal__form-label">Category</label>
+                                        <select id="selectCategory" name="category">
+                                            <option>--Select a Category--</option>
+                                            <option value="Subscription">Subscription</option>
+                                            <option value="Insurance">Insurance</option>
+                                            <option value="Bill">Bill</option>
+                                            <option value="Miscellaneous">Miscellaneous</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal__form-containers">
+                                    <div class="modal__form-sections">
+                                        <label class="modal__form-label" for="subNotes">Notes</label>
+                                        <textarea class="modal__form-input" type="text" name="subNotes" id="subNotes" rows="10" cols="61" aria-label="Subscription Notes"></textarea>
+                                    </div>    
+                                    <input type="submit" value="Submit" id="submitSubscription">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="modal__body">
-                        <form class="modal__form" id="subForm">
-                            <div class="modal__form-containers">
-                                <div class="modal__form-sections">
-                                    <label for="subName" class="modal__form-label">Subscription</label>
-                                    <input class="modal__form-input" type="text" name="subName" id="subName" aria-label="Subscription Name" required placeholder="Subscription">
-                                </div>
-                                <div class="modal__form-sections">
-                                    <label for="cost" class="modal__form-label">Cost</label>
-                                    <input class="modal__form-input" type="number" name="cost" id="cost" aria-label="Subscription Cost" required placeholder="Cost" min="0" max="100000" step="any">
-                                </div>
+                    <div class="confirmation" id="deleteModal">
+                        <div class="confirmation__header">
+                            <div class="confirmation__header-title">Are you sure you wish to delete this entry?</div>
+                            <div class="confirmation__buttons">
+                                <button type="button" id="rejectDelete">Cancel</button>
+                                <button type="button" id="confirmDelete">Delete</button>
                             </div>
-                            <div class="modal__form-containers">
-                                <div class="modal__form-sections" id="renewalDateInput">
-                                    <label for="renewalDate" class="modal__form-label">Renewal Date</label>
-                                    <input class="modal__form-input" type="date" name="renewalDate" id="renewalDate" required aria-label="Renewal Date" placeholder="Renewal Date">
-                                </div>
-                                <div class="modal__form-sections" id="frequencyModal">
-                                    <label for="frequency" class="modal__form-label">Frequency</label>
-                                        <select name="frequency" id="frequency" class="modal__form-input" required>
-                                        <option value="">--Select a Frequency--</option>
-                                        <option value="Weekly">Weekly</option>
-                                        <option value="Fortnightly">Fortnightly</option>
-                                        <option value="Monthly">Monthly</option>
-                                        <option value="Yearly">Yearly</option>
-                                    </select>
-                                </div>
-                                <div class="modal__form-sections">
-                                    <label for="selectCategory" class="modal__form-label">Category</label>
-                                    <select id="selectCategory" name="category">
-                                        <option>--Select a Category--</option>
-                                        <option value="Subscription">Subscription</option>
-                                        <option value="Insurance">Insurance</option>
-                                        <option value="Bill">Bill</option>
-                                        <option value="Miscellaneous">Miscellaneous</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="modal__form-containers">
-                                <div class="modal__form-sections">
-                                    <label class="modal__form-label" for="subNotes">Notes</label>
-                                    <textarea class="modal__form-input" type="text" name="subNotes" id="subNotes" rows="10" cols="61" aria-label="Subscription Notes"></textarea>
-                                </div>    
-                                <input type="submit" value="Submit" id="submitSubscription">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="confirmation" id="deleteModal">
-                    <div class="confirmation__header">
-                        <div class="confirmation__header-title">Are you sure you wish to delete this entry?</div>
-                        <div class="confirmation__buttons">
-                            <button type="button" id="rejectDelete">Cancel</button>
-                            <button type="button" id="confirmDelete">Delete</button>
                         </div>
                     </div>
+                    <div id="overlay"></div>
                 </div>
-                <div id="overlay"></div>
-            </div>
-            <div class="divTableWrapper" id="divSubscriptions">
-            <div class="divTable steelBlueCols" id="container">
-                <div class="divTableHeading">
-                    <div class="divTableRow">
+                <div class="divTableWrapper" id="divSubscriptions">
+                <div class="divTable steelBlueCols" id="container">
+                    <div class="divTableHeading">
+                        <div class="divTableRow">
+                        </div>
                     </div>
-                </div>
-                    <div class="divTableBody" id="subTableBody">
+                        <div class="divTableBody" id="subTableBody">
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            Footer
+            <div class="footer">
+                <div>Copyright © <span id="currentDate"></span> Alanna Hembrow</div>
+                <div>
+                    <div><a href="#">More projects</a></div>
+                    <div><a href="#">Terms of Service</a></div>
+                    <div><a href="#">Contact Us</a></div>
+                </div>
+            </div>
         </footer>
     </div>
     <div id="overlay"></div>

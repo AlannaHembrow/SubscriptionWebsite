@@ -5,6 +5,7 @@ const auth = getAuth(app);
 const loginStatus = document.getElementById("userOptions");
 const hiddenUser = document.getElementById("hiddenUser");
 const nightButton = document.getElementById("nightMode");
+const footerCurrentDate = document.getElementById("currentDate");
 let darkMode = localStorage.getItem("dark-mode");
 let siteBody = document.body;
 let subscriptionBody = document.getElementById("container");
@@ -58,16 +59,20 @@ function logOut() {
 
 function enableDarkMode() {
     siteBody.classList.add('dark-mode');
-    subscriptionBody.classList.add('dark-mode');
     nightButton.innerHTML = ('Light Mode');
     localStorage.setItem("dark-mode", "enabled");
+    if (subscriptionBody != null) {
+        subscriptionBody.classList.add('dark-mode');
+    }
 }
 
 function disableDarkMode() {
     siteBody.classList.remove('dark-mode');
-    subscriptionBody.classList.remove('dark-mode');
     nightButton.innerHTML = ('Dark Mode');
     localStorage.setItem("dark-mode", "disabled");
+    if (subscriptionBody != null) {
+        subscriptionBody.classList.remove('dark-mode');
+    }
 }
 
 if (darkMode === "enabled") {
@@ -82,3 +87,6 @@ nightButton.addEventListener("click", (e) => {
       disableDarkMode();
     }
 });
+
+var footerDate = new Date()
+footerCurrentDate.innerHTML = (footerDate.getFullYear())
