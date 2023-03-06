@@ -4,10 +4,13 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 const auth = getAuth(app);
 const loginStatus = document.getElementById("userOptions");
 const hiddenUser = document.getElementById("hiddenUser");
+const nightButton = document.getElementById("nightMode");
+let darkMode = localStorage.getItem("dark-mode");
+let siteBody = document.body;
+let subscriptionBody = document.getElementById("container");
 
 document.getElementById("userOptions").onclick = function() {userMenu()};
 document.getElementById("logOut").onclick = function() {logOut()};
-document.getElementById("nightMode").onclick = function() {nightMode()};
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -53,8 +56,29 @@ function logOut() {
   })
 }
 
+function enableDarkMode() {
+    siteBody.classList.add('dark-mode');
+    subscriptionBody.classList.add('dark-mode');
+    nightButton.innerHTML = ('Light Mode');
+    localStorage.setItem("dark-mode", "enabled");
+}
 
-function nightMode() {
-    let siteBody = document.body;
-    siteBody.classList.toggle("dark-mode");
-  } 
+function disableDarkMode() {
+    siteBody.classList.remove('dark-mode');
+    subscriptionBody.classList.remove('dark-mode');
+    nightButton.innerHTML = ('Dark Mode');
+    localStorage.setItem("dark-mode", "disabled");
+}
+
+if (darkMode === "enabled") {
+    enableDarkMode(); // set state of darkMode on page load
+}
+
+nightButton.addEventListener("click", (e) => {
+    darkMode = localStorage.getItem("dark-mode"); // update darkMode when clicked
+    if (darkMode === "disabled") {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+});
