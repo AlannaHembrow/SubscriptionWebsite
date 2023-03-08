@@ -75,8 +75,9 @@
 
 .subscriptions {
   width: 100%;
-  height: 80vh;
+  height: 75vh;
   display: flex;
+  padding-bottom: 10px;;
   justify-content: center;
 }
 
@@ -155,8 +156,13 @@ input[type=number] {
   justify-content: center;
 }
 
+.dashboard__body{
+  height: 75vh;
+}
+
 main {
-  height: 79.3vh;
+  padding-bottom: 10px;;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 .signin__info {
@@ -206,6 +212,7 @@ main {
   width: 100%;
   flex-wrap: wrap;
   align-content: flex-start;
+  height: 76vh;
 }
 
 .signin__form-input:focus {
@@ -329,6 +336,8 @@ div.steelBlueCols {
   justify-content: space-between;
   margin-left: 25%;
   margin-right: 25%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+  padding-bottom: 5px;
 }
 .divTable.steelBlueCols .divTableHeading .divTableHead {
   font-size: 15px;
@@ -700,5 +709,16 @@ select {
 .footer {
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid grey;
+  padding-top: 10px;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
 }

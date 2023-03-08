@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>Document</title>
+    <script type="module" src="index.bundle.js"></script>  
+    <script type="module" src="dashboard.bundle.js"></script>  
+    <title>Dashboard</title>
 </head>
 <body>
     <div class="grid">
@@ -13,8 +15,8 @@
             <h1 class="header__h1">Subtracker</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
-                    <li class="navbar__list-item"><a class="nav__link" href="#">Home</a></li>
-                    <li class="navbar__list-item" ><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="index.html">Home</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
                     <div class="navbar navbar__list-right">
                         <li class="navbar__list-item" id="navbar__user-hidden "><button id="userOptions">Log In</button></a></li>
@@ -28,21 +30,16 @@
             </nav>
         </header>
         <main class="main">
-            <div class="subscriptions">
-                <form class="user__input">
-                    <div class="user__input-options">
-                        <input type="text" id="myInput" name="subscription" placeholder="Company">
-                        <input type="number" id="subscriptionValue" name="price" value="0.00" />
-                        <input type="submit" id="addSubscription" value="Add Sub">
-                    </div>
-                    <!-- <select id="selectCategory">
-                        <option>Choose a Category</option>
-                    </select>
-                    <label for="start">Start date:</label>
-                    <input type="date" id="start" name="payment-start" value="" min="2013-01-01" max="2030-12-31">
-                    <label for="start">End date:</label>
-                    <input type="date" id="end" name="payment-end" value="" min="2013-01-01" max="2030-12-31"> -->
+            <div class="contact">
+                <form class="contact__form">
+                    <label for="emailAddress" class="contact__form-label">Email Address</label>
+                    <input class="contact__form-input" type="email" name="emailAddress" id="emailAddress" aria-label="Email Address" required placeholder="Your Email Address">
+                    <label for="subject" class="contact__form-label">Subject</label>
+                    <input class="contact__form-input" type="text" name="subject" id="subject" aria-label="Email Subject" required placeholder="Subject">
+                    <label for="subject" class="contact__form-label">Message</label>
+                    <textarea class="contact__form-input" type="text" name="message" id="message" aria-label="Message" required placeholder="Message"></textarea>
                 </form>
+            </div>
         </main>
         <footer>
             <div class="footer">
