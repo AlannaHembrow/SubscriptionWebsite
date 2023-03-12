@@ -741,6 +741,7 @@ select {
 .contact {
   height: 75%;
   padding-bottom: 7%;
+  padding-top: 1%;
 }
 
 #contactBackground {
