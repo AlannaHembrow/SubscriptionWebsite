@@ -15,6 +15,7 @@ let subscriptionBody = document.getElementById("container");
 let contactForm = document.getElementById("contactForm");
 let contactFormSubmit = document.getElementById("submitContact");
 let contactHeader = document.getElementById("contactHeader");
+let termsAndConditions = document.getElementById("termsAndConditions");
 
 document.getElementById("userOptions").onclick = function() {userMenu()};
 document.getElementById("logOut").onclick = function() {logOut()};
@@ -81,6 +82,9 @@ function enableDarkMode() {
             element.classList.remove('contact__input-light');
             element.classList.add('contact__input-dark');
           });
+    } else if (termsAndConditions != null) {
+        termsAndConditions.classList.add('conditions__dark');
+        termsAndConditions.classList.remove('conditions__light');
     }
     header.forEach((element) => {
         element.classList.remove('header_light');
@@ -111,6 +115,9 @@ function disableDarkMode() {
             element.classList.add('contact__input-light');
             element.classList.remove('contact__input-dark');
           });
+    } else if (termsAndConditions != null) {
+        termsAndConditions.classList.remove('conditions__dark');
+        termsAndConditions.classList.add('conditions__light');
     }
     header.forEach((element) => {
         element.classList.add('header_light');
