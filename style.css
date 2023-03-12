@@ -14,7 +14,7 @@
 
 .nav__link {
   text-decoration: none;
-  color: rgb(218, 217, 217);
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,13 +39,13 @@
 
 .header {
   display: flex;
-  background-color: #2d3142;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   height: 60px;
 }
 
 .nav__link:hover{
-  color: #ffffff;
+  color: #050505;
   font-weight: 600;
 }
 
@@ -721,4 +721,62 @@ select {
 .contact__form {
   display: flex;
   flex-direction: column;
+  background-color: #f8e5e4;
+  padding: 40px 80px;
+}
+
+.contact__form-input {
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,.1);
+  padding-left: 5px;
+  outline: none;
+  background-color: #f8e5e4;
+}
+
+.contact__form textarea {
+  resize: none;
+  font-size: 13px;
+}
+
+.contact {
+  height: 75%;
+  padding-bottom: 7%;
+}
+
+#contactBackground {
+  background-image: url("landscape.jpg");
+}
+
+.contact__form-label {
+  padding-top: 10px;
+}
+
+#submitContact {
+  padding: 10px;
+  margin-top: 20px;
+  width: 120px;
+  transition: .2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  background: rgb(226, 102, 143);
+  letter-spacing: 2px;
+  color: white;
+}
+
+#submitContact:hover {
+  background: #f8e5e4;
+  border-bottom: 2px solid;
+  color: rgb(226, 102, 143);
+
+}
+
+.contact h3 {
+  background-color: #f8e5e4;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.flex__right {
+  display: flex;
+  justify-content: right;
 }

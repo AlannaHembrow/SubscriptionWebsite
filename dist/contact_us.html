@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <script type="module" src="index.bundle.js"></script>  
-    <script type="module" src="dashboard.bundle.js"></script>  
     <title>Dashboard</title>
 </head>
 <body>
@@ -29,15 +27,19 @@
                 </ul>
             </nav>
         </header>
-        <main class="main">
+        <main class="main" id="contactBackground">
             <div class="contact">
-                <form class="contact__form">
+                <div><h3>Have a question? Email us.</h3></div>
+                <form class="contact__form" action="mailto:alanna.hembrow@gmail.com" method="get" enctype="multipart/form-data">
                     <label for="emailAddress" class="contact__form-label">Email Address</label>
                     <input class="contact__form-input" type="email" name="emailAddress" id="emailAddress" aria-label="Email Address" required placeholder="Your Email Address">
                     <label for="subject" class="contact__form-label">Subject</label>
                     <input class="contact__form-input" type="text" name="subject" id="subject" aria-label="Email Subject" required placeholder="Subject">
                     <label for="subject" class="contact__form-label">Message</label>
-                    <textarea class="contact__form-input" type="text" name="message" id="message" aria-label="Message" required placeholder="Message"></textarea>
+                    <textarea class="contact__form-input" type="text" name="message" id="message" aria-label="Message" required placeholder="Message" rows="12" cols="51"></textarea>
+                    <div class="flex__right">
+                        <input id="submitContact" type="submit" value="Submit" name="submit">
+                    </div>
                 </form>
             </div>
         </main>
@@ -53,6 +55,5 @@
         </footer>
     </div>
     <script type="module" src="index.bundle.js"></script>  
-    <script type="module" src="addSub.bundle.js"></script>
 </body>
 </html>
