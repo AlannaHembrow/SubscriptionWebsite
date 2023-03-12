@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <title>Dashboard</title>
 </head>
-<body>
+<body class="light_mode">
     <div class="grid">
-        <header class="header">
+        <header class="header header_light" id="header">
             <h1 class="header__h1">Subtracker</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
@@ -27,24 +27,24 @@
                 </ul>
             </nav>
         </header>
-        <main class="main" id="contactBackground">
+        <main class="main">
             <div class="contact">
-                <div><h3>Have a question? Email us.</h3></div>
-                <form class="contact__form" action="mailto:alanna.hembrow@gmail.com" method="get" enctype="multipart/form-data">
+                <div class="contact__header-light" id="contactHeader"><h3>Have a question? Email us.</h3></div>
+                <form class="contact__form contact__form-light" id="contactForm" action="mailto:alanna.hembrow@gmail.com" method="GET">
                     <label for="emailAddress" class="contact__form-label">Email Address</label>
-                    <input class="contact__form-input" type="email" name="emailAddress" id="emailAddress" aria-label="Email Address" required placeholder="Your Email Address">
+                    <input class="contact__form-input contact__input-light" type="email" name="emailAddress" id="emailAddress" aria-label="Email Address" required placeholder="Your Email Address">
                     <label for="subject" class="contact__form-label">Subject</label>
-                    <input class="contact__form-input" type="text" name="subject" id="subject" aria-label="Email Subject" required placeholder="Subject">
+                    <input class="contact__form-input contact__input-light" type="text" name="subject" id="subject" aria-label="Email Subject" required placeholder="Subject">
                     <label for="subject" class="contact__form-label">Message</label>
                     <textarea class="contact__form-input" type="text" name="message" id="message" aria-label="Message" required placeholder="Message" rows="12" cols="51"></textarea>
                     <div class="flex__right">
-                        <input id="submitContact" type="submit" value="Submit" name="submit">
+                        <input id="submitContact" class="contact__button-light" type="submit" value="Submit" name="submit">
                     </div>
                 </form>
             </div>
         </main>
         <footer>
-            <div class="footer">
+            <div class="footer footer_light" id="footer">
                 <div>Copyright © <span id="currentDate"></span> Alanna Hembrow</div>
                 <div>
                     <div><a href="https://github.com/IvyWoof" target="_blank" rel="noreferrer noopener">More projects</a></div>
@@ -54,6 +54,6 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="index.bundle.js"></script>  
+    <script type="module" src="index.bundle.js"></script>
 </body>
 </html>
