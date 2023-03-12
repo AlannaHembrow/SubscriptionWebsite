@@ -49,12 +49,9 @@
 
 .header_dark {
   background-color: #7ca4be;
-  color: white;
+  color: #050505;
 }
 
-.header_dark a{
-  color: white;
-}
 .nav__link:hover{
   color: #050505;
   font-weight: 600;
@@ -64,9 +61,13 @@
   padding: 5px;
 }
 
+#userOptions:hover {
+  color: #050505;
+  font-weight: 600;
+}
+
 .navbar {
   width: 100%; 
-  margin-right: 10px;
 }
 
 .navbar__list-right {
@@ -481,13 +482,16 @@ div.steelBlueCols {
 
 .navbar__user-hidden {
   text-align: center;
-  background-color: rgb(186, 222, 243);
+  background-color: white;
+  margin-right: 0;
   display: none;
   z-index: 2;
+  border-radius: 6px;
+  border: 1px solid transparent
 }
 
 .user__link:hover {
-  background-color: red;
+  font-weight: 600;
 }
 
 .navbar__user-hidden a {
