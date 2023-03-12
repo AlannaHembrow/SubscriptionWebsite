@@ -7,11 +7,11 @@ const hiddenUser = document.getElementById("hiddenUser");
 const nightButton = document.getElementById("nightMode");
 const footerCurrentDate = document.getElementById("currentDate");
 const elements = document.querySelectorAll(".contact__form-input");
+const header = document.querySelectorAll(".header");
+const footer = document.querySelectorAll(".footer");
 let darkMode = localStorage.getItem("dark-mode");
 let siteBody = document.body;
 let subscriptionBody = document.getElementById("container");
-let headerDark = document.getElementById("header");
-let footerDark = document.getElementById("footer");
 let contactForm = document.getElementById("contactForm");
 let contactFormSubmit = document.getElementById("submitContact");
 let contactHeader = document.getElementById("contactHeader");
@@ -66,10 +66,6 @@ function logOut() {
 function enableDarkMode() {
     siteBody.classList.remove('light_mode');
     siteBody.classList.add('dark-mode');
-    headerDark.classList.add('header_dark');
-    headerDark.classList.remove('header_light');
-    footerDark.classList.remove('footer_light');
-    footerDark.classList.add('footer_dark');
     nightButton.innerHTML = ('Light Mode');
     localStorage.setItem("dark-mode", "enabled");
     if (subscriptionBody != null) {
@@ -86,15 +82,20 @@ function enableDarkMode() {
             element.classList.add('contact__input-dark');
           });
     }
+    header.forEach((element) => {
+        element.classList.remove('header_light');
+        element.classList.add('header_dark');
+      });
+
+    footer.forEach((element) => {
+        element.classList.remove('footer_light');
+        element.classList.add('footer_dark');
+    });
 }
 
 function disableDarkMode() {
     siteBody.classList.remove('dark-mode');
     siteBody.classList.add('light_mode');
-    headerDark.classList.remove('header_dark');
-    headerDark.classList.add('header_light');
-    footerDark.classList.remove('footer_dark');
-    footerDark.classList.add('footer_light');
     nightButton.innerHTML = ('Dark Mode');
     localStorage.setItem("dark-mode", "disabled");
     if (subscriptionBody != null) {
@@ -111,6 +112,15 @@ function disableDarkMode() {
             element.classList.remove('contact__input-dark');
           });
     }
+    header.forEach((element) => {
+        element.classList.add('header_light');
+        element.classList.remove('header_dark');
+      });
+
+    footer.forEach((element) => {
+        element.classList.add('footer_light');
+        element.classList.remove('footer_dark');
+    });
 }
 
 if (darkMode === "enabled") {
