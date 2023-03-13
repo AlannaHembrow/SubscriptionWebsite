@@ -10,6 +10,7 @@ const elements = document.querySelectorAll(".contact__form-input");
 const header = document.querySelectorAll(".header");
 const footer = document.querySelectorAll(".footer");
 let darkMode = localStorage.getItem("dark-mode");
+let userStatus = localStorage.getItem("userLoggedIn");
 let siteBody = document.body;
 let subscriptionBody = document.getElementById("container");
 let contactForm = document.getElementById("contactForm");
@@ -25,8 +26,10 @@ onAuthStateChanged(auth, (user) => {
         console.log('user status:', user)
         const displayName = user.displayName;
         loginStatus.innerHTML =  'Welcome, ' + displayName;
+        localStorage.setItem("userLoggedIn", "enabled");
     } else {
-        console.log('user status:', user)
+        console.log('user status:', user);
+        localStorage.setItem("userLoggedIn", "disabled");
         loginStatus.innerHTML = 'Log In';
     } 
 }) 
@@ -145,3 +148,5 @@ nightButton.addEventListener("click", (e) => {
 
 var footerDate = new Date()
 footerCurrentDate.innerHTML = (footerDate.getFullYear())
+
+console.log(userStatus)

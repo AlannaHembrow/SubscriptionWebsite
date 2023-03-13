@@ -31,10 +31,25 @@
             <div class="subscriptions">
                 <form class="user__input">
                     <div class="user__input-options">
-                        <input type="text" id="myInput" name="subscription" placeholder="Company">
-                        <input type="number" id="subscriptionValue" name="price" value="0.00" />
-                        <input type="submit" id="addSubscription" value="Add Sub">
+                        <input type="text" id="myInput" class="index__form-input" name="subscription" placeholder="Company">
+                        <input type="number" id="subscriptionValue" class="index__form-input" name="price" value="0.00" />
                     </div>
+                    <div class="user__input-options">
+                        <div class="index__form-sections" id="indexRenewalDateInput">
+                            <label for="renewalDate" class="index__form-label"></label>
+                            <input class="index__form-input" type="date" name="renewalDate" id="indexRenewalDate" required aria-label="Renewal Date" placeholder="Renewal Date">
+                        </div>
+                        <div class="index__form-sections" id="indexFrequency">
+                            <label for="frequency" class="index__form-label"></label>
+                                <select name="frequency" id="frequency" class="index__form-input" required>
+                                <option value="">--Select a Frequency--</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                        </div>
+                    <input type="submit" id="addSubscription" value="Add Sub">
                     <!-- <select id="selectCategory">
                         <option>Choose a Category</option>
                     </select>
@@ -43,7 +58,7 @@
                     <label for="start">End date:</label>
                     <input type="date" id="end" name="payment-end" value="" min="2013-01-01" max="2030-12-31"> -->
                 </form>
-                <img src="../20944142.jpg" height="500px">
+                <!-- <img src="../20944142.jpg" height="500px"> -->
         </main>
         <footer>
             <div class="footer footer_light">

@@ -78,6 +78,7 @@ height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding-right: 10px;
 }
 
 
@@ -99,16 +100,28 @@ height: 100%;
 
 .user__input {
   margin-top: 30vh;
-  width: 50vw;
+  width: 35%;
 }
 
 .user__input-options {
   width: 100%;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 #myInput {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.index__form-input {
   width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -131,6 +144,7 @@ height: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  width: auto;
 }
 
 #subscriptionValue:focus {
@@ -628,6 +642,15 @@ select {
   width: 17vw;
 }
 
+#indexRenewalDate {
+  width: 100%;
+}
+
+#indexFrequency {
+  width: 100%;
+  margin-left: 1%;
+}
+
 #renewalDateInput {
   width: 175px;
 }
@@ -876,9 +899,10 @@ footer {
 }
 
 .dark-mode {
-  background-color: white;
+  background-color: rgb(75, 96, 119);
   background-image: url("dark_landscape.jpg") !important;
-  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: black !important;
 }
 

@@ -15,6 +15,7 @@ function signIn(event) {
     signInWithEmailAndPassword(auth, email, password)
         .then(() => {
         loginForm.reset()
+        localStorage.setItem("userLoggedIn", "enabled");
         location.href = "dashboard.html";
         })
         .catch((err) => {
