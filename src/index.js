@@ -21,29 +21,14 @@ let termsAndConditions = document.getElementById("termsAndConditions");
 document.getElementById("userOptions").onclick = function() {userMenu()};
 document.getElementById("logOut").onclick = function() {logOut()};
 
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log('user status:', user)
-        const displayName = user.displayName;
-        loginStatus.innerHTML =  'Welcome, ' + displayName;
-        localStorage.setItem("userLoggedIn", "enabled");
-    } else {
-        console.log('user status:', user);
-        localStorage.setItem("userLoggedIn", "disabled");
-        loginStatus.innerHTML = 'Log In';
-    } 
-}) 
-
 function userMenu() {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
+    if (userStatus == 'enabled') {
             hiddenUser.style.display = "block";
             hiddenUser.classList.add('hiddenUser.active');
             console.log('User is logged in, menu shown');
         } else {
             location.href = "../dist/sign_in.html";
         }
-  })
 }
 
 
@@ -58,7 +43,9 @@ function logOut() {
         if (user) {
             signOut(auth)
             .then(() => {
-              console.log('user signed out')
+                localStorage.setItem("userLoggedIn", "disabled");
+                console.log('user signed out');
+                location.href = "../dist/sign_in.html";
             })
             .catch(err => {
               console.log(err.message)
@@ -150,3 +137,14 @@ var footerDate = new Date()
 footerCurrentDate.innerHTML = (footerDate.getFullYear())
 
 console.log(userStatus)
+
+onAuthStateChanged(auth, (user) => {
+    if (userStatus == 'enabled') {
+        console.log('user status:', user)
+        const displayName = user.displayName;
+        loginStatus.innerHTML =  'Welcome, ' + displayName;
+    } else {
+        console.log('user status:', user);
+        loginStatus.innerHTML = 'Log In';
+    } 
+}) 

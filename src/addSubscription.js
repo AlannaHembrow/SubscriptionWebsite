@@ -6,18 +6,19 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const colRef = collection(db, 'subscriptions')
+const addSubscriptionForm = document.querySelector('.user__input')
 
 //add subscription
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        const addSubscriptionForm = document.querySelector('.user__input')
         addSubscriptionForm.addEventListener('submit', (e) => {
         e.preventDefault()
 
         addDoc(colRef, {
             subscriptionName: addSubscriptionForm.subscription.value,
             subscriptionValue: addSubscriptionForm.price.value,
-            subscriptionDate: addSubscriptionForm.
+            subscriptionDate: addSubscriptionForm.renewalDate.value,
+            subscrriptionFreq: addSubscriptionForm.frequency.value,
             user: user.uid,
             createdAt: serverTimestamp()
         })
@@ -26,26 +27,19 @@ onAuthStateChanged(auth, (user) => {
         })
      })
      } else {
-        console.log('not logged in')
-        // location.href = "sign_up.html";
-    }
-})
-
-// show subscription if logged in
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // real time collection data
-        const uid = user.uid;   
-        console.log(uid)
-        const q = query(colRef, where("user", "==", uid));
-        onSnapshot(q, (snapshot) => {
-            let subscriptions = []
-            snapshot.docs.forEach((doc) => {
-                subscriptions.push({ ...doc.data(), id: doc.id })
-            })
-            console.log(subscriptions)
-        })
-    } else {
-        console.log('Not logged in');
+        addSubscriptionForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            console.log('not logged in');
+            localStorage.setItem("subscriptionName", addSubscriptionForm.subscription.value);
+            localStorage.setItem("subscriptionValue", addSubscriptionForm.price.value);
+            localStorage.setItem("subscriptionDate", addSubscriptionForm.renewalDate.value);
+            localStorage.setItem("subscriptionFreq", addSubscriptionForm.frequency.value);
+            const subscriptionName = localStorage.getItem("subscriptionName");
+            const subscriptionValue = localStorage.getItem("subscriptionValue");
+            const subscriptionDate = localStorage.getItem("subscriptionDate");
+            const subscriptionFreq = localStorage.getItem("subscriptionFreq");
+            console.log(subscriptionName, subscriptionValue, subscriptionDate, subscriptionFreq);
+            location.href = "sign_in.html";
+        }) 
     }
 })

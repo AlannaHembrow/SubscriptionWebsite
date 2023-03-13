@@ -7,11 +7,33 @@ const db = getFirestore(app);
 
 const colRef = collection(db, 'subscriptions')
 
+const subscriptionName = localStorage.getItem("subscriptionName");
+const subscriptionValue = localStorage.getItem("subscriptionValue");
+const subscriptionDate = localStorage.getItem("subscriptionDate");
+const subscriptionFreq = localStorage.getItem("subscriptionFreq");
+
 onAuthStateChanged(auth, (user) => {
     if (!user) {
         location.href = "../dist/sign_in.html";
     } 
 })  
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if (subscriptionName != null) {
+            addDoc(colRef, {
+                subscriptionName: subscriptionName,
+                subscriptionValue: subscriptionValue,
+                subscriptionDate: subscriptionDate,
+                subscrriptionFreq: subscriptionFreq,
+                user: user.uid,
+                createdAt: serverTimestamp()
+            }).then(() => {
+                localStorage.removeItem("subscriptionName", "subscriptionValue", "subscriptionDate", "subscriptionFreq");
+            })
+        }
+    }
+})
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
