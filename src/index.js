@@ -114,6 +114,11 @@ function disableDarkMode() {
     } else if (termsAndConditions != null) {
         termsAndConditions.classList.remove('conditions__dark');
         termsAndConditions.classList.add('conditions__light');
+    } else if (subButton != null) {
+        subButton.forEach((element) => {
+            element.classList.remove('index__submit-dark');
+            element.classList.add('index__submit-light');
+          });
     }
     header.forEach((element) => {
         element.classList.add('header_light');
