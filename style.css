@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+height: 100%;
+}
+
 .navbar__list {
   display: flex;
   justify-content: space-between;
@@ -163,9 +167,10 @@ input[type=number] {
 }
 
 .main {
-  padding-top: 5vh;
+  padding-top: 3vh;
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .dashboard__body{
@@ -174,7 +179,6 @@ input[type=number] {
 
 main {
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 .signin__info {
@@ -201,6 +205,7 @@ main {
   margin-top: 3px;
   margin-left: 6%;
   border: 2px solid rgb(211, 211, 211);
+  background-color: #f8e5e4;
   padding: 12px; 
   height: 15px; 
   outline: none;
@@ -212,7 +217,7 @@ main {
 
 .signin__wrapper {
   padding-top: 30px;
-  background-color: rgba(245, 245, 245, 0.76);
+  background-color: #f8e5e4;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(129, 127, 127, 0.2);
   width: 25%;
@@ -224,11 +229,11 @@ main {
   width: 100%;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 76vh;
+  height: 732px;
 }
 
-.signin__form-input:focus {
-  border: 2px solid #555;
+.signin__form input:focus:invalid {
+  border: 2px solid rgb(175, 30, 30);
 }
 
 .signin__info span {
@@ -253,20 +258,26 @@ main {
   width: 89%;
   margin-right: 5%;
   margin-left: 6%;
-  margin-top: 20px;
-  background-color: #8daeb6;
+  margin-top: 10px;
   border: none;
-  color: white;
   padding: 10px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  transition: .2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  background: rgb(226, 102, 143);
+  letter-spacing: 2px;
+  color: white;
 }
 
 .signin__form-btn:hover {
-  background-color: #75a877;
+  background-color: #f8e5e4;
+  border-bottom: 2px solid;
+  color: rgb(226, 102, 143);
 }
 
 .signin__form-continue {
@@ -335,6 +346,12 @@ div.steelBlueCols {
 .divTable.steelBlueCols .divTableBody .divTableCell {
   font-size: 16px;
   text-align: left;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  min-height: 100vh;
 }
 
 .divTable.steelBlueCols .divTableHeading {
@@ -621,7 +638,7 @@ select {
 }
 
 .contact__form input:focus:invalid {
-  border: 1px solid rgb(175, 30, 30);
+  border: 2px solid rgb(175, 30, 30);
   margin: 0px;
 }
 
@@ -721,6 +738,10 @@ select {
   display: none;
 }
 
+footer {
+  margin-top: 20px;
+}
+
 .footer {
   display: flex;
   justify-content: space-around;
@@ -728,6 +749,8 @@ select {
   font-size: 0.9rem;
   padding-bottom: 10px;
   color: rgb(255, 255, 255);
+  right: 0;bottom:0;left:0;
+  width: 100%;
 }
 
 .footer_light {
@@ -746,7 +769,7 @@ select {
 .contact__form {
   display: flex;
   flex-direction: column;
-  padding: 40px 80px;
+  padding: 39px 80px;
 }
 
 .contact__form-light {
@@ -780,7 +803,7 @@ select {
 
 .contact__form-input {
   padding: 5px;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 2px solid rgb(211, 211, 211);
   padding-left: 5px;
   outline: none;
 }
@@ -863,6 +886,7 @@ select {
   width: 45%;
   padding: 1% 2% 2% 2%;
   margin-bottom: 2%;
+  height: 100%;
 }
 
 .conditions__light {

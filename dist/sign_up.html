@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <title>Sign Up</title>
 </head>
-<body>
+<body class="light_mode">
     <div class="grid">
-        <header class="header">
+        <header class="header header_light">
             <h1 class="header__h1">Subtracker</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
@@ -20,7 +20,7 @@
                         <li class="navbar__list-item" id="navbar__user-hidden "><button id="userOptions">Log In</button></a></li>
                         <div class="navbar__user-hidden" id="hiddenUser">
                             <li class="navbar__list-item"><a class="user__link" href="account_settings.html">Account</a></li>
-                            <li class="navbar__list-item"><a class="user__link" href="#">Night Mode</a></li>
+                            <li class="navbar__list-item"><a class="user__link" href="#"><button id="nightMode">Night Mode</button></a></li>
                             <li class="navbar__list-item"><a class="user__link" href="#" id="logOut">Log out</a></li>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <input class="signin__form-input" type="password" name="password">
                         <label class="signin__form-label" for="password-confirmation">Password confirmation</label>
                         <input class="signin__form-input" type="password" name="password-confirmation">
-                        <div class="signin__form-terms"><a href="#">By signing up, you agree to our terms of use.</a></div>
+                        <div class="signin__form-terms"><a href="terms_and_conditions.html" target="_blank" rel="noreferrer noopener">By signing up, you agree to our terms of use.</a></div>
                         <button class="signin__form-btn">Sign up</button>
                         </form>
                         <span class="signin__form-continue">Or continue with</span>
@@ -55,7 +55,7 @@
             </div>
         </main>
         <footer>
-            <div class="footer">
+            <div class="footer footer_light">
                 <div>Copyright © <span id="currentDate"></span> Alanna Hembrow</div>
                 <div>
                     <div><a href="https://github.com/IvyWoof" target="_blank" rel="noreferrer noopener">More projects</a></div>
