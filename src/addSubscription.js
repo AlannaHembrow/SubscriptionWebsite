@@ -17,6 +17,7 @@ onAuthStateChanged(auth, (user) => {
         addDoc(colRef, {
             subscriptionName: addSubscriptionForm.subscription.value,
             subscriptionValue: addSubscriptionForm.price.value,
+            subscriptionDate: addSubscriptionForm.
             user: user.uid,
             createdAt: serverTimestamp()
         })
