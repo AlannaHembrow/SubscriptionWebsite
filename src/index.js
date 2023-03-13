@@ -17,6 +17,7 @@ let contactForm = document.getElementById("contactForm");
 let contactFormSubmit = document.getElementById("submitContact");
 let contactHeader = document.getElementById("contactHeader");
 let termsAndConditions = document.getElementById("termsAndConditions");
+let subButton = document.querySelectorAll(".submitButton");
 
 document.getElementById("userOptions").onclick = function() {userMenu()};
 document.getElementById("logOut").onclick = function() {logOut()};
@@ -75,6 +76,11 @@ function enableDarkMode() {
     } else if (termsAndConditions != null) {
         termsAndConditions.classList.add('conditions__dark');
         termsAndConditions.classList.remove('conditions__light');
+    } else if (subButton != null) {
+        subButton.forEach((element) => {
+            element.classList.add('index__submit-dark');
+            element.classList.remove('index__submit-light');
+          });
     }
     header.forEach((element) => {
         element.classList.remove('header_light');

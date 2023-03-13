@@ -31,8 +31,8 @@
             <div class="subscriptions">
                 <form class="user__input">
                     <div class="user__input-options">
-                        <input type="text" id="myInput" class="index__form-input" name="subscription" placeholder="Company">
-                        <input type="number" id="subscriptionValue" class="index__form-input" name="price" value="0.00" />
+                        <input type="text" id="myInput" class="index__form-input" name="subscription" placeholder="Company" required aria-label="Subscription Name">
+                        <input type="number" id="subscriptionValue" class="index__form-input" name="price" value="0.00" required aria-label="Subscription Price"/>
                     </div>
                     <div class="user__input-options">
                         <div class="index__form-sections" id="indexRenewalDateInput">
@@ -49,16 +49,8 @@
                                 <option value="Yearly">Yearly</option>
                             </select>
                         </div>
-                    <input type="submit" id="addSubscription" value="Add Sub">
-                    <!-- <select id="selectCategory">
-                        <option>Choose a Category</option>
-                    </select>
-                    <label for="start">Start date:</label>
-                    <input type="date" id="start" name="payment-start" value="" min="2013-01-01" max="2030-12-31">
-                    <label for="start">End date:</label>
-                    <input type="date" id="end" name="payment-end" value="" min="2013-01-01" max="2030-12-31"> -->
+                    <input type="submit" id="addSubscription" value="Add Sub" class="submitButton index__submit-light">
                 </form>
-                <!-- <img src="../20944142.jpg" height="500px"> -->
         </main>
         <footer>
             <div class="footer footer_light">

@@ -92,7 +92,7 @@ height: 100%;
 
 .subscriptions {
   width: 100%;
-  height: 75vh;
+  height: 77.9vh;
   display: flex;
   padding-bottom: 10px;;
   justify-content: center;
@@ -163,21 +163,48 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-#addSubscription {
-  background-color: #8daeb6; /* Green */
-  border: none;
+.index__submit-light {
   color: white;
-  margin: 8px 8px;
-  padding: 13px 18px;
+  margin-top: 8px;
+  padding: 11px 18px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  width: 120px;
+  transition: .2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  letter-spacing: 2px;
+  background: rgb(226, 102, 143);
 }
 
-#addSubscription:hover {
-  background-color: #75a877; /* Green */
+.index__submit-dark {
   color: white;
+  margin-top: 8px;
+  padding: 11px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 120px;
+  transition: .2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  letter-spacing: 2px;
+  background: #345f82;
+}
+
+.index__submit-light:hover {
+  background-color: #f8e5e4;
+  border-bottom: 2px solid;
+  color: rgb(226, 102, 143);
+}
+
+.index__submit-dark:hover {
+  background-color: #f8e5e4;
+  border-bottom: 2px solid;
+  color: #345f82;;
 }
 
 .main {
@@ -289,7 +316,7 @@ main {
 }
 
 .signin__form-btn:hover {
-  background-color: #f8e5e4;
+  background: #f8e5e4;
   border-bottom: 2px solid;
   color: rgb(226, 102, 143);
 }
