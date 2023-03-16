@@ -8,7 +8,7 @@ module.exports = {
         resetPass: '/src/reset_password.js',
         signUp: '/src/sign_up.js',
         index: '/src/index.js',
-        addSub: '/src/addSubscription.js',
+        addSub: '/src/add_subscription.js',
         dashboard: '/src/dashboard.js'
     },
     output: {
