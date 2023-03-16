@@ -46,7 +46,6 @@ function logOut() {
             .then(() => {
                 localStorage.setItem("userLoggedIn", "disabled");
                 console.log('user signed out');
-                localStorage.setItem("dark-mode", "disabled");
                 location.href = "../dist/sign_in.html";
             })
             .catch(err => {
@@ -156,7 +155,6 @@ onAuthStateChanged(auth, (user) => {
         const displayName = user.displayName;
         loginStatus.innerHTML =  'Welcome, ' + displayName;
     } else {
-        console.log('user status:', user);
         loginStatus.innerHTML = 'Log In';
     } 
 }) 

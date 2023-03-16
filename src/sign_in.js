@@ -3,7 +3,30 @@ import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from
 
 const auth = getAuth(app);
 
-// logging in and out
+const rememberMeCheck = document.getElementById("rememberMe"),
+    emailInput = document.getElementById("emailAddress"),
+    loginForm = document.getElementById('signinForm');
+
+loginForm.addEventListener('submit', signIn);
+ 
+function rememberMe() {
+    if (rememberMeCheck.checked && emailInput.value !== "") {
+        localStorage.email = emailInput.value;
+        localStorage.checkbox = rememberMeCheck.value;
+        console.log(localStorage.email)
+    } else {
+        localStorage.email = "";
+        localStorage.checkbox = "";
+    }
+}
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+    rememberMeCheck.setAttribute("checked", "checked");
+    emailInput.value = localStorage.email;
+  } else {
+    rememberMeCheck.removeAttribute("checked");
+    emailInput.value = "";
+  }
 
 
 function signIn(event) {
@@ -14,7 +37,14 @@ function signIn(event) {
 
     signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-        loginForm.reset()
+            if (rememberMeCheck.checked && emailInput.value !== "") {
+                localStorage.email = emailInput.value;
+                localStorage.checkbox = rememberMeCheck.value;
+                console.log(localStorage.email)
+            } else {
+                localStorage.email = "";
+                localStorage.checkbox = "";
+            }
         localStorage.setItem("userLoggedIn", "enabled");
         location.href = "dashboard.html";
         })
@@ -22,8 +52,5 @@ function signIn(event) {
             console.log(err.message)
         })
 }
-
-const loginForm = document.getElementById('signinForm') 
-loginForm.addEventListener('submit', signIn);
 
 
