@@ -46,6 +46,7 @@ function logOut() {
             .then(() => {
                 localStorage.setItem("userLoggedIn", "disabled");
                 console.log('user signed out');
+                localStorage.setItem("dark-mode", "disabled");
                 location.href = "../dist/sign_in.html";
             })
             .catch(err => {
@@ -61,7 +62,7 @@ function enableDarkMode() {
     nightButton.innerHTML = ('Light Mode');
     localStorage.setItem("dark-mode", "enabled");
     if (subscriptionBody != null) {
-        subscriptionBody.classList.add('dark-mode');
+        subscriptionBody.classList.add('subscription_body-dark');
     } else if (contactForm != null) {
         contactForm.classList.add('contact__form-dark');
         contactForm.classList.remove('contact__form-light');
@@ -99,7 +100,7 @@ function disableDarkMode() {
     nightButton.innerHTML = ('Dark Mode');
     localStorage.setItem("dark-mode", "disabled");
     if (subscriptionBody != null) {
-        subscriptionBody.classList.remove('dark-mode');
+        subscriptionBody.classList.remove('subscription_body-dark');
     } else if (contactForm != null) {
         contactForm.classList.remove('contact__form-dark');
         contactForm.classList.add('contact__form-light');
