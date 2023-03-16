@@ -774,6 +774,14 @@ select {
   font-size: 0.9em;
 }
 
+.user__input h2 {
+  font-size: 3rem;
+  text-align: center;
+  padding-bottom: 1%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .modal__form-containers {
   display: flex;
   gap: 2vw;
