@@ -1,10 +1,12 @@
 import app from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { where, query, runTransaction, collection, firebase, getDoc, docRef, getFirestore, onSnapshot, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
+import { where, query, runTransaction, collection, setDoc, firebase, getDoc, docRef, getFirestore, onSnapshot, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+const addSubscriptionForm = document.querySelector('.modal__form');
+const editSubscriptionForm = document.querySelector('.edit__form');
 const colRef = collection(db, 'subscriptions')
 
 const subscriptionName = localStorage.getItem("subscriptionName");
@@ -132,11 +134,13 @@ onAuthStateChanged(auth, (user) => {
 })
 
 
-const popup = document.getElementById("modal");
-const overlay = document.getElementById("overlay");
+const popup = document.getElementById("modal"),
+    overlay = document.getElementById("overlay"),
+    editPopup = document.getElementById("edit-modal");
 
 document.getElementById("addSubButton").onclick = function() {addSub()};
 document.getElementById("closeAddSub").onclick = function() {closeAddSub()};
+document.getElementById("closeEditSub").onclick = function() {closeAddSub()};
 
 function addSub() {
     popup.classList.add("active");
@@ -145,12 +149,14 @@ function addSub() {
 
 function closeAddSub() {
     popup.classList.remove("active");
+    editPopup.classList.remove("active");
     overlay.classList.remove("active");
 }
 
 overlay.addEventListener('click', () => {
     deleteConfirmation.classList.remove("active");
     popup.classList.remove("active");
+    editPopup.classList.remove("active");
     overlay.classList.remove("active");
 })
 
@@ -212,26 +218,50 @@ document.addEventListener('click', (e)=> {
     let target = e.target;
     if(target.classList.contains("editBtn"))  {
         let editRowID = (e.target.dataset.internalid);
-        popup.classList.add("active");
+        editPopup.classList.add("active");
         overlay.classList.add("active");
-        let subscriptionNameValue = document.getElementById("subName"),
-            costValue = document.getElementById("cost"),
-            renewalDateValue = document.getElementById("renewalDate"),
-            subNotesValue = document.getElementById("subNotes"),
-            frequencyValue = document.getElementById("frequency"),
-            categoryValue = document.getElementById("selectCategory");
+        let subscriptionNameValue = document.getElementById("editSubName"),
+            costValue = document.getElementById("editCost"),
+            renewalDateValue = document.getElementById("editRenewalDate"),
+            subNotesValue = document.getElementById("editSubNotes"),
+            frequencyValue = document.getElementById("editFrequency"),
+            categoryValue = document.getElementById("editSelectCategory");
             getDoc(doc(db, "subscriptions", editRowID)).then(docSnap => {
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
+                costValue.value = docSnap.data().subscriptionValue;
+                subscriptionNameValue.value = docSnap.data().subscriptionName;
+                categoryValue.value = docSnap.data().subscriptionCategory;
+                renewalDateValue.value = docSnap.data().subscriptionDate;
+                frequencyValue.value = docSnap.data().subscriptionFreq;
+                subNotesValue.value = docSnap.data().subscriptionNotes;
+                editSubscriptionForm.addEventListener('submit', async (e) => {
+                    e.preventDefault() 
+                    const docRef = doc(db, "subscriptions", editRowID);
+                    console.log(editRowID);
+                    setDoc(docRef, {
+                    subscriptionName: subscriptionNameValue.value,
+                    subscriptionCategory: categoryValue.value,
+                    subscriptionDate: renewalDateValue.value,
+                    subscriptionNotes: subNotesValue.value,
+                    subscriptionFreq: frequencyValue.value,
+                    subscriptionValue: costValue.value
+                    }, {
+                        merge: true
+                    }).then(() => {
+                        editRowID = '';
+                        editPopup.classList.remove("active");
+                        overlay.classList.remove("active");
+                    })
+                })
               } else {
                 console.log("No such document!");
               }
-            })
+        })
 
         console.log(editRowID);
     } 
 });
-    
-const addSubscriptionForm = document.querySelector('.modal__form')
-addSubscriptionForm.reset();
 
+
+addSubscriptionForm.reset();
+editSubscriptionForm.reset();

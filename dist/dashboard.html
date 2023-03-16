@@ -108,6 +108,62 @@
                                     </div>
                                 </form>
                             </div>
+                            <div class="modal" id="edit-modal">
+                                <div class="modal__header">
+                                    <div class="modal__header-title">Edit Subscription</div>
+                                    <div class="modal__header-buttons">
+                                        <button type="button" id="closeEditSub">&times;</button>
+                                    </div>
+                                </div>
+                                <div class="modal__body">
+                                    <form class="edit__form" id="editSubForm">
+                                        <div class="modal__form-containers">
+                                            <div class="modal__form-sections">
+                                                <label for="subName" class="modal__form-label">Subscription</label>
+                                                <input class="modal__form-input" type="text" name="subName" id="editSubName" aria-label="Subscription Name" required placeholder="Subscription">
+                                            </div>
+                                            <div class="modal__form-sections">
+                                                <label for="cost" class="modal__form-label">Cost</label>
+                                                <input class="modal__form-input" type="number" name="cost" id="editCost" aria-label="Subscription Cost" required placeholder="Cost" min="0" max="100000" step="any">
+                                            </div>
+                                        </div>
+                                        <div class="modal__form-containers">
+                                            <div class="modal__form-sections" id="renewalDateInput">
+                                                <label for="renewalDate" class="modal__form-label">Renewal Date</label>
+                                                <input class="modal__form-input" type="date" name="renewalDate" id="editRenewalDate" required aria-label="Renewal Date" placeholder="Renewal Date">
+                                            </div>
+                                            <div class="modal__form-sections" id="frequencyModal">
+                                                <label for="frequency" class="modal__form-label">Frequency</label>
+                                                    <select name="frequency" id="editFrequency" class="modal__form-input" required>
+                                                    <option value="">--Select a Frequency--</option>
+                                                    <option value="Weekly">Weekly</option>
+                                                    <option value="Fortnightly">Fortnightly</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                    <option value="Yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal__form-sections">
+                                                <label for="selectCategory" class="modal__form-label">Category</label>
+                                                <select id="editSelectCategory" name="category">
+                                                    <option>--Select a Category--</option>
+                                                    <option value="Subscription">Subscription</option>
+                                                    <option value="Insurance">Insurance</option>
+                                                    <option value="Bill">Bill</option>
+                                                    <option value="Miscellaneous">Miscellaneous</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal__form-containers">
+                                            <div class="modal__form-sections">
+                                                <label class="modal__form-label" for="subNotes">Notes</label>
+                                                <textarea class="modal__form-input" type="text" name="subNotes" id="editSubNotes" rows="10" cols="61" aria-label="Subscription Notes"></textarea>
+                                            </div>    
+                                            <input type="submit" value="Submit" id="editSubscription">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         <div class="confirmation" id="deleteModal">
                             <div class="confirmation__header">
