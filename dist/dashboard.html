@@ -56,7 +56,6 @@
                             <div class="modal__header">
                                 <div class="modal__header-title">Add a New Subscription</div>
                                 <div class="modal__header-buttons">
-                                    <button type="button" id="setNotification">N</button>
                                     <button type="button" id="closeAddSub">&times;</button>
                                 </div>
                             </div>
@@ -65,11 +64,11 @@
                                     <div class="modal__form-containers">
                                         <div class="modal__form-sections">
                                             <label for="subName" class="modal__form-label">Subscription</label>
-                                            <input class="modal__form-input" type="text" name="subName" id="subName" aria-label="Subscription Name" required placeholder="Subscription">
+                                            <input class="modal__form-input" type="text" name="subName" id="subName" aria-label="Subscription Name" required placeholder="Subscription" maxlength="20" maxlength="1">
                                         </div>
                                         <div class="modal__form-sections">
                                             <label for="cost" class="modal__form-label">Cost</label>
-                                            <input class="modal__form-input" type="number" name="cost" id="cost" aria-label="Subscription Cost" required placeholder="Cost" min="0" max="100000" step="any">
+                                            <input class="modal__form-input" type="number" name="cost" id="cost" aria-label="Subscription Cost" required placeholder="Cost" min="0" max="10000" step="any">
                                         </div>
                                     </div>
                                     <div class="modal__form-containers">
@@ -120,7 +119,7 @@
                                         <div class="modal__form-containers">
                                             <div class="modal__form-sections">
                                                 <label for="subName" class="modal__form-label">Subscription</label>
-                                                <input class="modal__form-input" type="text" name="subName" id="editSubName" aria-label="Subscription Name" required placeholder="Subscription">
+                                                <input class="modal__form-input" type="text" name="subName" id="editSubName" aria-label="Subscription Name" required placeholder="Subscription" maxlength="20" maxlength="1">
                                             </div>
                                             <div class="modal__form-sections">
                                                 <label for="cost" class="modal__form-label">Cost</label>

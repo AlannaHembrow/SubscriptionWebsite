@@ -31,8 +31,8 @@
             <div class="subscriptions">
                 <form class="user__input">
                     <div class="user__input-options">
-                        <input type="text" id="myInput" class="index__form-input" name="subscription" placeholder="Company" required aria-label="Subscription Name">
-                        <input type="number" id="subscriptionValue" class="index__form-input" name="price" value="0.00" required aria-label="Subscription Price"/>
+                        <input type="text" id="myInput" class="index__form-input" name="subscription" placeholder="Company" required aria-label="Subscription Name" maxlength="20" maxlength="1">
+                        <input type="number" id="subscriptionValue" class="index__form-input" name="price" value="0.00" required aria-label="Subscription Price" min="0" max="10000"/>
                     </div>
                     <div class="user__input-options">
                         <div class="index__form-sections" id="indexRenewalDateInput">

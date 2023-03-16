@@ -158,6 +158,8 @@ overlay.addEventListener('click', () => {
     popup.classList.remove("active");
     editPopup.classList.remove("active");
     overlay.classList.remove("active");
+    addSubscriptionForm.reset();
+    editSubscriptionForm.reset();
 })
 
 
