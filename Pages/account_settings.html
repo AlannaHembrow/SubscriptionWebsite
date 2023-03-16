@@ -15,11 +15,10 @@
                 <ul class="navbar__list">
                     <li class="navbar__list-item"><a class="nav__link" href="index.html">Home</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
-                    <li class="navbar__list-item"><a class="nav__link" href=#>About</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href=contact_us.html>Contact</a></li>
                     <div class="navbar navbar__list-right">
                         <li class="navbar__list-item" id="navbar__user-hidden "><button id="userOptions">Log In</button></a></li>
                         <div class="navbar__user-hidden" id="hiddenUser">
-                            <li class="navbar__list-item"><a class="user__link" href="account_settings.html">Account</a></li>
                             <li class="navbar__list-item"><a class="user__link" href="#"><button id="nightMode">Night Mode</button></a></li>
                             <li class="navbar__list-item"><a class="user__link" href="#" id="logOut">Log out</a></li>
                         </div>
@@ -28,19 +27,12 @@
             </nav>
         </header>
         <main class="main">
-            <div class="contact">
-                <div class="contact__header-light" id="contactHeader"><h3>Have a question? Email us.</h3></div>
-                <form class="contact__form contact__form-light" id="contactForm" action="mailto:alanna.hembrow@gmail.com" method="GET">
-                    <label for="emailAddress" class="contact__form-label">Email Address*</label>
-                    <input class="contact__form-input contact__input-light" type="email" name="emailAddress" id="emailAddress" aria-label="Email Address" required placeholder="Your Email Address">
-                    <label for="subject" class="contact__form-label">Subject*</label>
-                    <input class="contact__form-input contact__input-light" type="text" name="subject" id="subject" aria-label="Email Subject" required placeholder="Subject">
-                    <label for="message" class="contact__form-label">Message*</label>
-                    <textarea class="contact__form-input contact__input-light" type="text" name="message" id="message" aria-label="Message" required placeholder="Message" rows="12" cols="51"></textarea>
-                    <div class="flex__right">
-                        <input id="submitContact" class="contact__button-light" type="submit" value="Submit" name="submit">
-                    </div>
-                </form>
+            <div>
+                <h3>Your Account Information</h3>
+                <div><p>Username</p></div>
+                <div><p>Email</p></div>
+                <div><p>Reset Password</p></div>
+                <div><p>Delete Account</p></div>
             </div>
         </main>
         <footer>
@@ -54,6 +46,6 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="index.bundle.js"></script>
+    <script type="module" src="../dist/index.bundle.js"></script>
 </body>
 </html>

@@ -778,7 +778,6 @@ select {
   font-size: 3rem;
   text-align: center;
   padding-bottom: 1%;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
@@ -942,7 +941,7 @@ footer {
 }
 
 .light_mode {
-  background-image: url("landscape.jpg");
+  background-image: url("../Images/landscape.jpg");
 }
 
 .contact__form-label {
@@ -999,7 +998,7 @@ footer {
 
 .dark-mode {
   background-color: rgb(75, 96, 119);
-  background-image: url("dark_landscape.jpg") !important;
+  background-image: url("../Images/dark_landscape.jpg") !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: black !important;

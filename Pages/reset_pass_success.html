@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>Dashboard</title>
+    <title>Sign Up</title>
 </head>
 <body class="light_mode">
     <div class="grid">
-        <header class="header header_light" id="header">
+        <header class="header header_light">
             <h1 class="header__h1">Subtracker</h1>
             <nav class="navbar">
                 <ul class="navbar__list">
                     <li class="navbar__list-item"><a class="nav__link" href="index.html">Home</a></li>
-                    <li class="navbar__list-item"><a class="nav__link" href="dashboard.html">Subscriptions</a></li>
+                    <li class="navbar__list-item"><a class="nav__link" href=#>Subscriptions</a></li>
                     <li class="navbar__list-item"><a class="nav__link" href=contact_us.html>Contact</a></li>
                     <div class="navbar navbar__list-right">
                         <li class="navbar__list-item" id="navbar__user-hidden "><button id="userOptions">Log In</button></a></li>
                         <div class="navbar__user-hidden" id="hiddenUser">
-                            <li class="navbar__list-item"><a class="user__link" href="account_settings.html">Account</a></li>
                             <li class="navbar__list-item"><a class="user__link" href="#"><button id="nightMode">Night Mode</button></a></li>
                             <li class="navbar__list-item"><a class="user__link" href="#" id="logOut">Log out</a></li>
                         </div>
@@ -28,9 +27,23 @@
             </nav>
         </header>
         <main class="main">
+            <div class="signin">
+                <div class="signin__info">
+                    <h2>Password Reset!</h2>
+                    <span>Your password has now been successfully reset, please click the link sent to your email address. <br><br> If you need to reset your password again, please fill in the form below.</span>
+                </div>
+                <div class="signin__wrapper">
+                    <form class="signin__form" id="resetPassForm">
+                        <label class="signin__form-label" for="email">Email address</label>
+                        <input class="signin__form-input" type="email" name="email">
+                        <button class="signin__form-btn">Send Reset Link</button>
+                        <div class="signin__form-expand"></div>
+                    </form>
+                </div>
+            </div>
         </main>
         <footer>
-            <div class="footer footer_light" id="footer">
+            <div class="footer footer_light">
                 <div>Copyright © <span id="currentDate"></span> Alanna Hembrow</div>
                 <div>
                     <div><a href="https://github.com/IvyWoof" target="_blank" rel="noreferrer noopener">More projects</a></div>
@@ -40,6 +53,7 @@
             </div>
         </footer>
     </div>
-    <script type="module" src="index.bundle.js"></script>
+    <script type="module" src="../dist/resetPass.bundle.js"></script>
+    <script type="module" src="../dist/index.bundle.js"></script>  
 </body>
 </html>
