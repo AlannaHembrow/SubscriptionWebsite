@@ -1,6 +1,6 @@
 import app from './firebase_config.js';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { where, query, runTransaction, collection, firebase, getFirestore, onSnapshot, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
+import { where, query, runTransaction, collection, firebase, getDoc, docRef, getFirestore, onSnapshot, doc, deleteDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -70,7 +70,7 @@ onAuthStateChanged(auth, (user) => {
                     let newSubFreqRow = document.createElement('div');
                     let editSubBtn = document.createElement('div');
                     const svgDelete = "<input type='image' class='deleteBtn' data-internalid=" + subID + " src='../delete-alt-svgrepo-com.svg'>";
-                    const svgEdit = "<button class='editBtn'>Edit</button>";
+                    const svgEdit = "<input type='image' class='editBtn' data-internalid=" + subID + " src='../edit-svgrepo-com.svg'>";
                     newSubNameRow.classList.add('divTableCell');
                     newSubValueRow.classList.add('divTableCell');
                     newSubDateRow.classList.add('divTableCell');
@@ -160,11 +160,10 @@ const deleteConfirmation = document.getElementById("deleteModal");
 document.addEventListener('click', (e)=> {
     let target = e.target;
     if(target.classList.contains("deleteBtn"))  {
-        console.log('test')
         let rowID = (e.target.dataset.internalid);
         deleteModal(rowID);
     } 
- });
+});
 
 function deleteModal(rowID) {
     deleteConfirmation.classList.add("active");
@@ -208,6 +207,31 @@ onAuthStateChanged(auth, (user) => {
         })
     })
 })
+
+document.addEventListener('click', (e)=> {
+    let target = e.target;
+    if(target.classList.contains("editBtn"))  {
+        let editRowID = (e.target.dataset.internalid);
+        popup.classList.add("active");
+        overlay.classList.add("active");
+        let subscriptionNameValue = document.getElementById("subName"),
+            costValue = document.getElementById("cost"),
+            renewalDateValue = document.getElementById("renewalDate"),
+            subNotesValue = document.getElementById("subNotes"),
+            frequencyValue = document.getElementById("frequency"),
+            categoryValue = document.getElementById("selectCategory");
+            getDoc(doc(db, "subscriptions", editRowID)).then(docSnap => {
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+              } else {
+                console.log("No such document!");
+              }
+            })
+
+        console.log(editRowID);
+    } 
+});
     
 const addSubscriptionForm = document.querySelector('.modal__form')
 addSubscriptionForm.reset();
+

@@ -12,7 +12,7 @@ module.exports = {
         dashboard: '/src/dashboard.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'Bundles'),
         filename: '[name].bundle.js'
     },
     watch: true

@@ -16,6 +16,10 @@ height: 100%;
   list-style: none;
 }
 
+.editBtn {
+  height: 24px;
+}
+
 .nav__link {
   text-decoration: none;
   color: rgb(0, 0, 0);
@@ -215,7 +219,7 @@ input[type=number] {
 }
 
 .dashboard__body{
-  min-height: 75.7vh;
+  min-height: 82vh;
   display: flex;
   justify-content: center;
 }
@@ -789,7 +793,7 @@ select {
 }
 
 #confirmDelete {
-  background-color: #c0dfce;
+  background-color: #2ca9bc;
 }
 
 .hidden {

@@ -8,17 +8,6 @@ const rememberMeCheck = document.getElementById("rememberMe"),
     loginForm = document.getElementById('signinForm');
 
 loginForm.addEventListener('submit', signIn);
- 
-function rememberMe() {
-    if (rememberMeCheck.checked && emailInput.value !== "") {
-        localStorage.email = emailInput.value;
-        localStorage.checkbox = rememberMeCheck.value;
-        console.log(localStorage.email)
-    } else {
-        localStorage.email = "";
-        localStorage.checkbox = "";
-    }
-}
 
 if (localStorage.checkbox && localStorage.checkbox !== "") {
     rememberMeCheck.setAttribute("checked", "checked");
@@ -40,7 +29,6 @@ function signIn(event) {
             if (rememberMeCheck.checked && emailInput.value !== "") {
                 localStorage.email = emailInput.value;
                 localStorage.checkbox = rememberMeCheck.value;
-                console.log(localStorage.email)
             } else {
                 localStorage.email = "";
                 localStorage.checkbox = "";
