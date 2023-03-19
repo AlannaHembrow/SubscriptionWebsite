@@ -103,8 +103,7 @@ height: 100%;
 }
 
 .user__input {
-  margin-top: 30vh;
-  width: 35%;
+  margin-top: 5%;
 }
 
 .user__input-options {
@@ -1021,4 +1020,14 @@ footer {
 
 .subscription_body-dark {
   background: #b7c8dac0 !important;
+}
+
+.subscription__container {
+  background-color: #f8e5e4ad;
+  width: 100%;
+  padding: 10%;
+}
+
+#addSubscription {
+  margin-left: 1%;
 }
