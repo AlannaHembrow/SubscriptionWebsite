@@ -1,4 +1,4 @@
-# SubscriptionWebite
+# SubscriptionWebsite
 A subscription tracking website that stores and calculates total subscriptions and their costs per month and year based on user data. This project utilises Firebase, Javascript, HTML, CSS and Webpack. 
 
 ## Setting Up
