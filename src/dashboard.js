@@ -29,7 +29,7 @@ const subscriptionFreq = localStorage.getItem("subscriptionFreq");
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    location.href = "../dist/sign_in.html";
+    location.href = "../Pages/sign_in.html";
   }
 });
 

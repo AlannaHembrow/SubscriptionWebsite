@@ -23,7 +23,7 @@ signupForm.addEventListener("submit", (e) => {
       console.log("user created:", cred.user);
       console.log("displayName:", displayName);
       signupForm.reset();
-      location.href = "dashboard.html";
+      location.href = "../Pages/dashboard.html";
     })
     .catch((err) => {
       console.log(err.message);

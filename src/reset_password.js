@@ -9,7 +9,7 @@ function sendResetPassword(event) {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       forgotPass.reset();
-      location.href = "reset_pass_success.html";
+      location.href = "../Pages/reset_pass_success.html";
     })
     .catch((err) => {
       console.log(err.message);

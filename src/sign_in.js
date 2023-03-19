@@ -33,7 +33,7 @@ function signIn(event) {
         localStorage.checkbox = "";
       }
       localStorage.setItem("userLoggedIn", "enabled");
-      location.href = "dashboard.html";
+      location.href = "../Pages/dashboard.html";
     })
     .catch((err) => {
       console.log(err.message);

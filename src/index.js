@@ -32,7 +32,7 @@ function userMenu() {
     hiddenUser.classList.add("hiddenUser.active");
     console.log("User is logged in, menu shown");
   } else {
-    location.href = "../dist/sign_in.html";
+    location.href = "../Pages/sign_in.html";
   }
 }
 
@@ -53,7 +53,7 @@ function logOut() {
         .then(() => {
           localStorage.setItem("userLoggedIn", "disabled");
           console.log("user signed out");
-          location.href = "../dist/sign_in.html";
+          location.href = "../Pages/sign_in.html";
         })
         .catch((err) => {
           console.log(err.message);
