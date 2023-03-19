@@ -92,11 +92,11 @@ onAuthStateChanged(auth, (user) => {
         const svgDelete =
           "<input type='image' class='deleteBtn' data-internalid=" +
           subID +
-          " src='../delete-alt-svgrepo-com.svg'>";
+          " src='../Images/delete-alt-svgrepo-com.svg'>";
         const svgEdit =
           "<input type='image' class='editBtn' data-internalid=" +
           subID +
-          " src='../edit-svgrepo-com.svg'>";
+          " src='../Images/edit-svgrepo-com.svg'>";
         newSubNameRow.classList.add("divTableCell");
         newSubValueRow.classList.add("divTableCell");
         newSubDateRow.classList.add("divTableCell");
